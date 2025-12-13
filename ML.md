@@ -6,8 +6,9 @@
 
 ## Plan
  * **Complete the Andrew NG. Course**
-   * regression-with-multiple-input-variables
-   * classification
+      * Supervised Machine Learning Regression and Classification
+        * regression-with-multiple-input-variables
+        * classification
  * **Practice Advanced vocabulary using ChatGPT**
 
 

@@ -4,7 +4,8 @@
 
 ---
 ## Plan
-
+ * **Practice Advanced vocabulary using ChatGPT**
+ * **Practice Advanced Grammer using ChatGPT**
 
 ---
 ## Nice to have

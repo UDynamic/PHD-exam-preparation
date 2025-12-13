@@ -1,12 +1,11 @@
 ## Progress
-  * completed the review of "Cambridge Vocab for Ielts band 6"
-  * completed the review of "Cambridge Vocab for Ielts band 6.5 and above"
-
+  * Andrew NG, Coursera
+      * Supervised Machine Learning Regression and Classification  
 
 
 ## Plan
+ * **Complete the Andrew NG. Course**
  * **Practice Advanced vocabulary using ChatGPT**
- * **Practice Advanced Grammer using ChatGPT**
 
 
 ## Nice to have

@@ -1,6 +1,9 @@
 ## Progress
   * Andrew NG, Coursera
-      * Supervised Machine Learning Regression and Classification  
+      * Supervised Machine Learning Regression and Classification
+        * introduction-to-machine-learning
+        * regression-with-multiple-input-variables
+        * classification
 
 
 ## Plan

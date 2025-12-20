@@ -4,6 +4,7 @@
 
 
 ## Plan
+* Supervised learning labs remain untouched
 * Unsupervised learning
 
  * **Complete the Andrew NG. Course**

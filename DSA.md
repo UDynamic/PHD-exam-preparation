@@ -11,7 +11,7 @@
 * Chapter 8
 * Chapter 9
 * Chapter 10
-
+* Complementory videos
 
 ## Nice to have
 * Pooran Pajhoh book for the konkur

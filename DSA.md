@@ -14,4 +14,4 @@
 
 
 ## Nice to have
-* **RAG implementation of free open source AI for the Konkur preparation**
+* Pooran Pajhoh book for the konkur

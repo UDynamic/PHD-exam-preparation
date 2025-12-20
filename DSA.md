@@ -1,6 +1,7 @@
 ## Progress
-* currently at video 38/84 (have been studying for several days)
-* studied until video 46 (4 Principle of Optimality - Dynamic Programming introduction)
+* Chapter 1
+* Chapter 2
+* Chapter 3
 
 ## Plan
 * Supervised learning labs remain untouched

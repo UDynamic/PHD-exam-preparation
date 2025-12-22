@@ -1,4 +1,5 @@
 ## Progress
+* Review on discrete maths (including combinations and permutations)
 * Chapter 1
 * Chapter 2
 * Chapter 3

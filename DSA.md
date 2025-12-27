@@ -16,6 +16,7 @@
 
 ## Need more work
 * Branch and bond for job schejuling
+* Branch and bond for 0/1 knap sack problem
 
 ## Nice to have
 * Pooran Pajhoh book for the konkur

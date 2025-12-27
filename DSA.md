@@ -14,6 +14,9 @@
 * Chapter 10
 * Complementory videos
 
+## Need more work
+* Branch and bond for job schejuling
+
 ## Nice to have
 * Pooran Pajhoh book for the konkur
 * Akra-bazzi

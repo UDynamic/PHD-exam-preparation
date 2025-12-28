@@ -20,6 +20,11 @@
     * session 3
     * session 4
     * session 5
+    * session 6
+    * session 7
+    * session 8
+    * session 9
+    * session 10
 
 
 ## Need more work

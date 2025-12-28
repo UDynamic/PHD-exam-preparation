@@ -18,6 +18,7 @@
 * Branch and bond for job schejuling
 * Branch and bond for 0/1 knap sack problem
 * P, NP, NP-Hard and NP-Complete
+* KMP for pattern matching
 
 ## Nice to have
 * Pooran Pajhoh book for the konkur

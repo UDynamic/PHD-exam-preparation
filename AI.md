@@ -9,7 +9,7 @@ course: **Aghaie package**
 
 ## Progress
 1. **Aghaie Tutorial**
-  1.1. Intro
+  1. Intro
     
   2. **Aghaie Test**
 

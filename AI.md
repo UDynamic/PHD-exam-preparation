@@ -8,7 +8,7 @@ course: **Aghaie package**
 
 
 ## Progress
-**Aghaie Tutorial**
+1.**Aghaie Tutorial**
   *.Intro
 2.**Aghaie Test**
 

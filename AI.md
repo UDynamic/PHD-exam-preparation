@@ -5,5 +5,12 @@ by Peter Norvig and Stuart J. Russe
 course: **Aghaie package**
   1. **Aghaie Tutorial**
   2. **Aghaie Test**
+
+
 ## Progress
-*
+  1. **Aghaie Tutorial**
+    1.1. Intro
+    
+  2. **Aghaie Test**
+
+## Plan

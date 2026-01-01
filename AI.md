@@ -11,6 +11,8 @@ course: **Aghaie package**
 ### Aghaie Tutorial
   * Intro
   * chapter 1
+  * chapter 2
+    
 
 ### Aghaie Test
 ---

@@ -7,3 +7,10 @@
 
 ## Progress
  * session 1
+
+## critical Issues
+ * Memorizing Probability distributions formula
+ * Mastering Probability distributions Maximul likelyhood calculations
+ 
+ * Calculus:
+   * Derivatives of Sigma notation and multiplication 

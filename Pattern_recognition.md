@@ -4,3 +4,6 @@
 ## Recieved budget (of the week + course)
  * Budget acquired
  * Purchace completed
+
+## Progress
+ * session 1

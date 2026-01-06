@@ -15,6 +15,8 @@ course: **Aghaie package**
   * chapter 3
   * chapter 4
   * chapter 5
+  * chapter 6
+  * 
     
 
 ### Aghaie Test

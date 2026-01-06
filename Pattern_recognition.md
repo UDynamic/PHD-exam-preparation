@@ -11,6 +11,7 @@
  * session 3
  * session 4
  * session 5
+ * session 6
 
 ## critical Issues
  * Memorizing Probability distributions formula

@@ -20,7 +20,7 @@
   * Complementory videos
       
 * Yousefi Test package
-    * session 1
+   * session 1
 
 ## Plan
 * Yousefi Test package

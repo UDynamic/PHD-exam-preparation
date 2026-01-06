@@ -1,4 +1,9 @@
 ## Progress
+
+* Fundamentals of Descrete maths and Calculus:
+  * reviewed Limit methods and attributes
+ 
+ 
 * Abdul Bari Algorithms playlist:
   * Review on discrete maths (including combinations and permutations)
   * Chapter 1

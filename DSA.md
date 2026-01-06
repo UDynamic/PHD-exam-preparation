@@ -13,6 +13,8 @@
   * Chapter 10
   * Complementory videos
       
+* Yousefi Test package
+    * session 1
 
 ## Plan
 * Yousefi Test package

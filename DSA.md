@@ -1,6 +1,7 @@
 ## Progress
 
 * Fundamentals of Descrete maths and Calculus:
+  * reviewed the rules of Permutations and Combinations
   * reviewed Limit methods and attributes
  
  

@@ -26,4 +26,7 @@
  * Mastering Probability distributions Maximul likelyhood calculations
  
  * Calculus:
-   * Derivatives of Sigma notation and multiplication 
+   * Derivatives of Sigma notation and multiplication
+  
+ * Simple math
+   * calculating divisions buy hand without calculator (e.g. : 1/3.7) 

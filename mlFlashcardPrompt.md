@@ -8,6 +8,7 @@ main reference : [Pattern recognition, Bishop]
 1. start from zero. define concepts.
 1. maximize education and coverage of the basic to the advanced concepts.  
 2. pitfalls and special considerations added to the end must to have 
+3. the general order of the flashcards must be in the conceptual order and most related consepts be nearest to each other
 
 ## Guidelines and rules for flashcards:
 1. Your respond must be only one markdown code block.

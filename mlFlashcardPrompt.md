@@ -23,11 +23,22 @@ main reference : [Pattern recognition, Bishop]
 
 ## topic_1
 
-**Front:** Question? `<br/>`
-**Back:** Explanation.
+**Front:** Question?
+**Back:**
+Explanation.
+
+$$
+Mathematical formula
+$$
 
 ## topic_1
 
-**Front:** Question ? `<br/>`
-**Back:** Explanation
+**Front:** Question ?
+**Back:**
+Explanation
+
+$$
+Mathematical formula
+$$
+
 """

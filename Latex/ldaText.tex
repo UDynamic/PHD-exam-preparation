@@ -1,0 +1,221 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+
+% Custom colors
+\definecolor{frontcolor}{rgb}{0.0, 0.8, 1.0}     % Cyan
+\definecolor{backcolor}{rgb}{0.8, 0.4, 0.1}      % Lime
+\definecolor{highlight}{rgb}{1.0, 1.0, 0.8}      % Light yellow
+
+% Flashcard environment
+\newenvironment{flashcard}[2]{
+    \begin{tcolorbox}[
+        enhanced,
+        colback=frontcolor!10,
+        colframe=frontcolor!50,
+        title=\textbf{Flashcard \thesection.\theflashcardnum: #1},
+        fonttitle=\bfseries,
+        arc=3mm,
+        boxrule=1pt,
+        drop fuzzy shadow
+    ]
+    \textbf{Front:} \textcolor{frontcolor}{\textbf{#2}}
+    \par\medskip
+    \textbf{Back:}
+}{
+    \end{tcolorbox}
+    \medskip
+}
+
+\newcounter{flashcardnum}
+\newcommand{\flashcardtitle}[1]{\stepcounter{flashcardnum}\textbf{#1}}
+
+\begin{document}
+
+\section{Singularity and Small Sample Problems}
+
+\subsection{Singularity Example Setup}
+
+\begin{flashcard}{Singularity Example}{Consider binary classification with 4 features (m=4) but only 3 total samples (n=3). What's the problem?}
+\color{backcolor}
+Example: Class 1: 2 samples, Class 2: 1 sample
+\[
+\mathbf{X}_1 = \begin{bmatrix}1 & 2 & 3 & 4\\5 & 6 & 7 & 8\end{bmatrix} \quad (2\times4)
+\]
+\[
+\mathbf{X}_2 = \begin{bmatrix}9 & 10 & 11 & 12\end{bmatrix} \quad (1\times4)
+\]
+
+\textcolor{red}{\textbf{Problem:}} We have m=4 features but n₁=2, n₂=1 samples.
+\begin{itemize}
+    \item Maximum possible rank of $\mathbf{S}_1 = \min(n₁-1, m) = \min(1, 4) = 1$
+    \item Maximum possible rank of $\mathbf{S}_2 = \min(n₂-1, m) = \min(0, 4) = 0$
+    \item So $\mathbf{S}_W = \mathbf{S}_1 + \mathbf{S}_2$ has max rank 1
+\end{itemize}
+\textcolor{red}{\textbf{But needs rank 4 to be invertible!}}
+\end{flashcard}
+
+\subsection{Why $\mathbf{S}_W$ Becomes Singular}
+
+\begin{flashcard}{Rank Deficiency}{Why does $\mathbf{S}_W$ become singular when n < m?}
+\color{backcolor}
+$\mathbf{S}_k = \mathbf{\bar{X}}_k^T \mathbf{\bar{X}}_k$ where $\mathbf{\bar{X}}_k$ is $(n_k \times m)$
+\begin{itemize}
+    \item Rank of $\mathbf{\bar{X}}_k$ ≤ $\min(n_k, m)$
+    \item After centering, rank ≤ $n_k - 1$ (loses 1 degree of freedom)
+    \item So rank($\mathbf{S}_k$) ≤ $n_k - 1$
+    \item Therefore rank($\mathbf{S}_W$) ≤ $(n₁ - 1) + (n₂ - 1) = n - 2$
+\end{itemize}
+
+\colorbox{highlight}{
+\textbf{Condition for invertibility:} $n - 2 \geq m$
+}
+
+If $n - 2 < m$, $\mathbf{S}_W$ is rank-deficient and singular.
+\end{flashcard}
+
+\section{Solutions to Singularity}
+
+\subsection{Regularization Solution}
+
+\begin{flashcard}{Regularization}{How does regularization $\mathbf{S}_W + \lambda\mathbf{I}$ solve the singularity problem?}
+\color{backcolor}
+Instead of $\mathbf{w} = \mathbf{S}_W^{-1}\mathbf{d}$, use:
+\[
+\mathbf{w} = (\mathbf{S}_W + \lambda\mathbf{I})^{-1}\mathbf{d}
+\]
+where $\lambda > 0$ is a small constant.
+
+\textbf{Why it works:}
+\begin{enumerate}
+    \item $\mathbf{S}_W$ is positive semi-definite (may have zero eigenvalues)
+    \item Adding $\lambda\mathbf{I}$ adds $\lambda$ to all eigenvalues
+    \item New matrix has minimum eigenvalue = $\lambda > 0$
+    \item Now invertible regardless of n and m
+\end{enumerate}
+
+\colorbox{highlight}{\textbf{Typical $\lambda$ values:} 0.001 to 0.1, or use cross-validation.}
+\end{flashcard}
+
+\subsection{PCA Preprocessing Solution}
+
+\begin{flashcard}{PCA Preprocessing}{How does PCA preprocessing help with the n < m problem?}
+\color{backcolor}
+\begin{enumerate}
+    \item Apply PCA to the combined data $\mathbf{X} = [\mathbf{X}_1; \mathbf{X}_2]$ (size n×m)
+    \item Keep only the top k principal components where k ≤ n - 2
+    \item Project all data to k dimensions: $\mathbf{X}' = \mathbf{X}\mathbf{V}_k$ where $\mathbf{V}_k$ is (m×k)
+    \item Apply LDA to $\mathbf{X}'$ which is (n×k) with k ≤ n - 2
+\end{enumerate}
+
+\colorbox{highlight}{\textbf{Advantage:} Reduces dimensionality while preserving variance.}
+
+\textbf{Disadvantage:} PCA is unsupervised - may discard discriminative information.
+\end{flashcard}
+
+\section{Worked Examples and Alternatives}
+
+\subsection{Complete Worked Example: n < m Case}
+
+\begin{flashcard}{Worked Example}{Solve LDA for data with n=3, m=4 using regularization.}
+\color{backcolor}
+Data: $\mathbf{X}_1 = \begin{bmatrix}1&2&3&4\\2&3&4&5\end{bmatrix}$, $\mathbf{X}_2 = \begin{bmatrix}9&8&7&6\end{bmatrix}$
+
+\begin{enumerate}
+    \item Means: $\mathbf{\mu}_1 = [1.5, 2.5, 3.5, 4.5]$, $\mathbf{\mu}_2 = [9, 8, 7, 6]$
+    \item Center: $\mathbf{\bar{X}}_1 = \begin{bmatrix}-0.5&-0.5&-0.5&-0.5\\0.5&0.5&0.5&0.5\end{bmatrix}$, $\mathbf{\bar{X}}_2 = [0,0,0,0]$
+    \item $\mathbf{S}_1 = \mathbf{\bar{X}}_1^T\mathbf{\bar{X}}_1 = \begin{bmatrix}0.5&0.5&0.5&0.5\\0.5&0.5&0.5&0.5\\0.5&0.5&0.5&0.5\\0.5&0.5&0.5&0.5\end{bmatrix}$, $\mathbf{S}_2 = \mathbf{0}$
+    \item $\mathbf{S}_W = \mathbf{S}_1$ \textcolor{red}{\textbf{(rank 1, singular!)}}
+    \item Regularize: $\mathbf{S}_W^{reg} = \mathbf{S}_W + 0.1\mathbf{I}_4$
+    \item $\mathbf{d} = \mathbf{\mu}_1 - \mathbf{\mu}_2 = [-7.5, -5.5, -3.5, -1.5]^T$
+    \item $\mathbf{w} = (\mathbf{S}_W^{reg})^{-1}\mathbf{d}$ \textcolor{green}{\textbf{(now computable)}}
+\end{enumerate}
+\end{flashcard}
+
+\subsection{Alternative: Pseudoinverse Solution}
+
+\begin{flashcard}{Pseudoinverse}{What is the pseudoinverse solution for singular $\mathbf{S}_W$?}
+\color{backcolor}
+Use Moore-Penrose pseudoinverse:
+\[
+\mathbf{w} = \mathbf{S}_W^+ \mathbf{d}
+\]
+where $\mathbf{S}_W^+ = \mathbf{V}\mathbf{\Sigma}^+\mathbf{U}^T$ from SVD:
+\[
+\mathbf{S}_W = \mathbf{U}\mathbf{\Sigma}\mathbf{V}^T
+\]
+
+\textbf{How it works:}
+\begin{enumerate}
+    \item Compute SVD of $\mathbf{S}_W$
+    \item $\mathbf{\Sigma}^+$ replaces non-zero σᵢ with 1/σᵢ, zero σᵢ remain 0
+    \item Gives minimum norm solution
+\end{enumerate}
+
+\colorbox{highlight}{\textbf{Equivalent to:} Regularization with λ→0}
+
+\textbf{Numerically more stable} than explicit regularization for very small λ.
+\end{flashcard}
+
+\section{Practical Guidelines}
+
+\subsection{Practical Rule of Thumb}
+
+\begin{flashcard}{Stability Rule}{What's the practical rule for ensuring stable LDA?}
+\color{backcolor}
+\colorbox{highlight}{
+\textbf{Golden Rule:} Need $n \geq m + 2$ for stable $\mathbf{S}_W^{-1}$
+}
+\begin{itemize}
+    \item $n₁ \geq m$ and $n₂ \geq m$ ideally
+    \item At minimum: $n₁ + n₂ \geq m + 2$
+\end{itemize}
+
+\colorbox{highlight}{\textbf{If rule violated:}}
+\begin{enumerate}
+    \item \textbf{n slightly < m:} Use regularization (λ = 0.01 to 0.1)
+    \item \textbf{n ≪ m:} Use PCA first to reduce to k ≤ n-2 dimensions
+    \item \textbf{Features correlated:} Even with n > m, $\mathbf{S}_W$ can be near-singular if features are linearly dependent
+\end{enumerate}
+
+\colorbox{highlight}{
+\textbf{Check condition number:} $\kappa(\mathbf{S}_W) = \frac{\sigma_{max}}{\sigma_{min}}$. If > 10⁶, use regularization.
+}
+\end{flashcard}
+
+\subsection{Implementation Check}
+
+\begin{flashcard}{Numerical Checks}{What numerical checks should you implement for LDA?}
+\color{backcolor}
+\begin{verbatim}
+# Pseudo-code for robust LDA
+def robust_LDA(X1, X2, lambda_reg=0.01):
+    n1, m = X1.shape
+    n2, _ = X2.shape
+    
+    # Check dimensions
+    if n1 + n2 < m + 2:
+        print("Warning: n < m+2. Using regularization.")
+    
+    # Compute S_W
+    S1 = (X1 - X1.mean(axis=0)).T @ (X1 - X1.mean(axis=0))
+    S2 = (X2 - X2.mean(axis=0)).T @ (X2 - X2.mean(axis=0))
+    S_W = S1 + S2
+    
+    # Check condition number
+    cond_num = np.linalg.cond(S_W)
+    if cond_num > 1e6:
+        print(f"Condition number {cond_num:.1e} too high. Regularizing.")
+        S_W_reg = S_W + lambda_reg * np.eye(m)
+        w = np.linalg.solve(S_W_reg, mu1 - mu2)
+    else:
+        w = np.linalg.solve(S_W, mu1 - mu2)
+    
+    return w / np.linalg.norm(w)
+\end{verbatim}
+\end{flashcard}
+
+\end{document}

@@ -22,11 +22,9 @@ expected text format of the the flashcards containing top tow flshcards:
 
 #tags column:6
 
-q[6MjIb^kb**	**Basic**	**ML-Evaluation**	**Accuracy**	**"<span style=""color:gold""> Ts Above all `<br><br>`How often is the classifier correct `<br><br>``<br>`\(Accuracy = \frac{TP + TN}{TP + TN + FP + FN}\)`<br><br>`"**	**
-
-t%ObJ)|9.!**	**Basic**	**ML-Evaluation**	**Precision**	**"<span style=""color:gold"">P for Predicted Positive `<br><br>`In all Predicted Positives how many where True `<br><br>`\(Precision = \frac{TP}{TP + FP}\)`<br>`"**	**
-
-}
+gw.ao-4QO+	Basic	ML-MLE&MAP	PDF for Exponential distribution	 PDF:`<br>` \( P(x \mid \lambda) = \lambda e^{-\lambda x} \) for \(x \geq 0 \)
+G=W$!i>KdB	Basic	ML-LinearAlgebra	For `<br><br>`\(\mathbf{u} = (u1, u2, \dots, u_n)\)`<br><br>`Then `<br><br>`L1 Norm (Manhattan Norm)	\( \|\mathbf{u}\|_1 = |u_1| + |u_2| + \dots + |u_n| \)
+PmUbP:@@{N	Basic	ML-LinearAlgebra	For `<br><br>`\(\mathbf{u} = (u1, u2, \dots, u_n)\)`<br><br>`Then `<br><br>`L2 Norm (Euclidean Norm)	"\(\|\mathbf{u}\|_2 = \sqrt{u_1^2 + u_2^2 + \dots + u_n^2} \)`<br><br>`<span style=""color:pink"">If not mentioned the norm, this is what they mean `<br><br>`<span style=""color:cyan"">\(\|\mathbf{u}\|_2 = \|\mathbf{u}\| \)"}
 
 ---
 

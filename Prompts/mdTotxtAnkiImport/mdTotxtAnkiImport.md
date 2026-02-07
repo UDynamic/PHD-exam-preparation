@@ -8,6 +8,7 @@
 
 expected text format of the the flashcards containing top tow flshcards:
 
+
 {
 
 #separator:tab
@@ -24,7 +25,8 @@ expected text format of the the flashcards containing top tow flshcards:
 
 gw.ao-4QO+	Basic	ML-MLE&MAP	PDF for Exponential distribution	 PDF:`<br>` \( P(x \mid \lambda) = \lambda e^{-\lambda x} \) for \(x \geq 0 \)
 G=W$!i>KdB	Basic	ML-LinearAlgebra	For `<br><br>`\(\mathbf{u} = (u1, u2, \dots, u_n)\)`<br><br>`Then `<br><br>`L1 Norm (Manhattan Norm)	\( \|\mathbf{u}\|_1 = |u_1| + |u_2| + \dots + |u_n| \)
-PmUbP:@@{N	Basic	ML-LinearAlgebra	For `<br><br>`\(\mathbf{u} = (u1, u2, \dots, u_n)\)`<br><br>`Then `<br><br>`L2 Norm (Euclidean Norm)	"\(\|\mathbf{u}\|_2 = \sqrt{u_1^2 + u_2^2 + \dots + u_n^2} \)`<br><br>`<span style=""color:pink"">If not mentioned the norm, this is what they mean `<br><br>`<span style=""color:cyan"">\(\|\mathbf{u}\|_2 = \|\mathbf{u}\| \)"}
+PmUbP:@@{N	Basic	ML-LinearAlgebra	For `<br><br>`\(\mathbf{u} = (u1, u2, \dots, u_n)\)`<br><br>`Then `<br><br>`L2 Norm (Euclidean Norm)	"\(\|\mathbf{u}\|_2 = \sqrt{u_1^2 + u_2^2 + \dots + u_n^2} \)```<br><br>``
+}
 
 ---
 

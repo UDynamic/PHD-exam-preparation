@@ -1,0 +1,31 @@
+#separator:tab
+#html:true
+#guid column:1
+#notetype column:2
+#deck column:3
+#tags column:6
+G=W$!i>KdB	Basic	ML-LinearAlgebra	For<br><br>\(\mathbf{u} = (u1, u2, \dots, u_n)\)<br><br>Then<br><br>L1 Norm (Manhattan Norm)	\( \|\mathbf{u}\|_1 = |u_1| + |u_2| + \dots + |u_n| \)	
+PmUbP:@@{N	Basic	ML-LinearAlgebra	For<br><br>\(\mathbf{u} = (u1, u2, \dots, u_n)\)<br><br>Then<br><br>L2 Norm (Euclidean Norm)	"\(\|\mathbf{u}\|_2 = \sqrt{u_1^2 + u_2^2 + \dots + u_n^2} \)<br><br><span style=""color:pink"">If not mentioned the norm, this is what they mean</span><br><br><span style=""color:cyan"">\(\|\mathbf{u}\|_2 = \|\mathbf{u}\| \)</span>"	
+Kc58]hM4[7	Basic	ML-LinearAlgebra	For<br><br>\(\mathbf{u} = (u1, u2, \dots, u_n)\)<br><br>Then<br><br>L\(\infty\) Norm <br>(Maximum or Chebyshev Norm)	\( \|\mathbf{u}\|_\infty = \max(|u_1|, |u_2|, \dots, |u_n|) \)	
+G3m1:Ah(H&	Basic	ML-LinearAlgebra	For<br><br>\(\mathbf{u} = (u1, u2, \dots, u_n)\)<br><br>Then<br><br>\(L_p\) Norm <br>(Minkowsky Generalized Norm)<br><br>For any \(p \geq 1 \)	"\( \|\mathbf{u}\|_p = \left( |u_1|^p + |u_2|^p + \dots + |u_n|^p \right)^{1/p} \)<br><br><span style=""color:pink"">\(L_1\), \(L_2\) and \(L_\infty\) as special cases when \(p = 1 \), \(p = 2\) and \(p=\infty\)</span>"	
+mm[RLcGzEn	Basic	ML-LinearAlgebra	For<br><br>\(\mathbf{v} = (v1, v2, \dots, v_n)\)<br><br>Then<br><br>Unit vector	A unit vector is a vector with a norm (Magnitude or length) of 1<br><br>\(\hat{\mathbf{v}} = \frac{\mathbf{v}}{\|\mathbf{v}\|} \)	
+z8/<!+xri1	Basic	ML-LinearAlgebra	Given two vectors<br> \( \mathbf{x}, \mathbf{y} \in \mathbb{R}^n \), and <br>a positive definite(\(\det(\mathbf{\Sigma}) \neq 0 => Reversible\)) covariance matrix \( \mathbf{\Sigma} \), <br><br>the Mahalanobis distance	"\(D_M(\mathbf{x}, \mathbf{y}) = \sqrt{(\mathbf{x} - \mathbf{y})^T \mathbf{\Sigma}^{-1} (\mathbf{x} - \mathbf{y})} \)<br><br><span style=""color:pink"">If  \(\mathbf{\Sigma} = \mathbf{I} \) (identity matrix), the Mahalanobis distance reduces to the Euclidean distance</span>"	
+ExL7+mscBV	Basic	ML-LinearAlgebra	"The angle between two vectors  \(\mathbf{u}\)  and  \(\mathbf{v} \)<br><br><span style=""color:lime"">COSINE SIMILARITY</span>"	" \(\cos(\theta) = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\| \|\mathbf{v}\|}\) <br><br><span style=""color:pink"">For Matrices you have to Vectorize them. (Just serialize the elements)</span>"	
+F=>JnUE/I>	Basic	ML-LinearAlgebra	For A and B n*n Matrices<br><br>\((AB)^T\)	\(B^TA^T\)	
+"nI|#Apk;l#"	Basic	ML-LinearAlgebra	For A a Symmetric matrix<br><br>What is<br><br>\(A^T\)	A	
+OcErP,--DT	Basic	ML-LinearAlgebra	What is the difference between the Identity Matrix and a Diagonal Matrix	"The main diameter of diagonal matrix could be any number. <br><br><span style=""color:pink"">All other elements are Zeros</span>"	
+FrR>]`,`4$	Basic	ML-LinearAlgebra	What is Determinant for a Diagonal Matrix	"Product of all the main diameter elements<br><br><span style=""color:cyan"">It's the same for an Upper triangular matrix</span>"	
+m^S_U%X^4x	Basic	ML-LinearAlgebra	for \(A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} \)<br><br>\(A^{-1}\)	"\(A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} \)<br><br>\(\text{det}(A) = ad - bc\) <br><br> <span style=""color:pink"">(if not Singular: \(\text{det}(A) \neq 0 \))<br></span><br><br><br>\(A^{-1} = \frac{1}{ad - bc} \begin{bmatrix} d & -b \\ -c & a \end{bmatrix}\) "	
+xUH_y[$3zf	Basic	ML-LinearAlgebra	For A an \(n*n\) matrix<br>and<br>\(|A|\) as \(\det(A)\)<br>and C as any number<br><br>What is<br>\(|CA|\)	\(C^n|A|\)	
+J1$uq&$R{	Basic	ML-LinearAlgebra	For A and B \(n*n\) matrix<br>and<br>\(|A|\) as \(\det(A)\)<br><br>What is<br>\(|AB|\)	\(|A||B|\)	
+E:35e@c3z5	Basic	ML-LinearAlgebra	For A an \(n*n\) matrix<br>and<br>\(|A|\) as \(\det(A)\)<br><br>What is<br>\(|A^T|\)	\(|A|\)	
+EGk({VLp>A	Basic	ML-LinearAlgebra	What is the Inverse of a Diagonal Matrix	Inverse Main diameter elements	
+"hj[36V#JCA"	Basic	ML-LinearAlgebra	For A an \(n*n\) matrix<br><br>\(AA^{-1}\)	\(I\)	
+Bc`r1n@DI}	Basic	ML-LinearAlgebra	For A and B \(n*n\) matrices<br><br>\((AB)^{-1}\)	\(B^{-1}A^{-1}\)	
+H/oc<>v25Q	Basic	ML-LinearAlgebra	For A an \(n*n\) matrix<br><br>\((A^{-1})^{-1}\)	\(A\)	
+Nk=vU)Gm,]	Basic	ML-LinearAlgebra	For A an \(n*n\) matrix<br><br>\((A^T)^{-1}\)	\((A^{-1})^T\)	
+oi()sn^T}F	Basic	ML-LinearAlgebra	For A an \(n*n\) matrix<br>and<br>and C as any number<br><br>\((cA)^{-1}\)	\(\frac{1}{c} A^{-1}\)	
+B}&/E2~BE%	Basic	ML-LinearAlgebra	For A an \(n*n\) matrix<br><br>Condition for A to be <br><br>Positive definite	"\(\forall \vec{X} \neq 0\)<br><br>\(X^{T}AX > 0\)<br><br><span style=""color:cyan"">Could be tested using unknown parameters for \(x = \{ x_1, x_2, \dots, x_n\}\)</span><br><br><span style=""color:pink"">for A, All the Eigenvalues(\(\lambda\)) are positive</span>"	
+"dM^qFhH4#7"	Basic	ML-LinearAlgebra	For A an \(n*n\) matrix<br><br>Condition for A to be <br><br>Positive semi-definite	"\(\forall \vec{X} \)<br><br>\(X^{T}AX \geq 0\)<br><br><span style=""color:cyan"">Could be tested using unknown parameters for \(x = \{ x_1, x_2, \dots, x_n\}\)</span><br><br><span style=""color:pink"">for A, All the Eigenvalues(\(\lambda\)) are None Negative</span><br>So<br><span style=""color:pink"">Might Not be revertible (one zero Eigenvalue would make determinant zero)</span><br>"	
+K$EvtTU&$F	Basic	ML-LinearAlgebra	How would a Positive semi-definite Matrix be Reversable	"If and only if it's <u>Positive Definite</u><br><br><span style=""color:pink"">All Eigenvalues Positive and determinant none Zero</span>"	
+Nm^Jv-3&_N	Basic	ML-LinearAlgebra	For A an \(n*n\) matrix<br><br>Eigenvalue	"An eigenvalue  \(\lambda\)  is a scalar such that for \(\forall \vec{v} \neq 0\) (eigenvector)<br>\(A v = \lambda v \rightarrow (A - \lambda I) v = 0\)  <br><br>For this equation to have a non-trivial solution (i.e.,  \(v \neq 0\) ), the matrix \( A - \lambda I \) must be singular, which means:  \(\det(A - \lambda I) = 0\) <br><br><span style=""color:cyan"">Solving this equationgives us the Eigenvalues <br>\(\det(A - \lambda I) = 0\) </span><br><br><span style=""color:cyan"">We can find the corresponding Eigenvectors by Placing each Eigenvalue</span>"	

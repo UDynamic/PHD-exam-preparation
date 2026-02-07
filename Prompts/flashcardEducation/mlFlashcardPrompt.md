@@ -16,6 +16,7 @@ main reference : [Pattern recognition, Bishop]
 2. mathematical expressions must be written using Latex inside $$
 3. write the name of the concept of focus as headlines
 4. very important: Flashcards must be short. if any subject is too braod, split it into subsections and different flashcards.
+5. use numbering on the flashcard titles
 
 ## formatting of the markdown block for flashcards:
 

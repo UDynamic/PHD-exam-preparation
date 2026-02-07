@@ -1,6 +1,8 @@
 expected text format of the the flashcards containing top tow flshcards:
 
-{#separator:tab
+{
+
+#separator:tab
 
 #html:true
 

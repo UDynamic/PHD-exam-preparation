@@ -1,8 +1,8 @@
 ## How to use
 
-2 fillings :
-
-####### to be filled #######
+1. 2 fillings : " ####### to be filled ####### "
+2. check for the last GUID and then add by incrementing it
+   1. decks before Mass Import had random GUID code
 
 ## Prompt
 

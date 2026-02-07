@@ -35,6 +35,7 @@ I want you to use the expected text format of the Anki export to turn the conten
 Important operations:
 
 * use the input flashcard's front and back to fill in the expected text format.
+* count the input data markdwon total flashcards and declare test result of total input and output flashcards.
 * make sure any "`$$`" or "`$$$$`""  math expression in markdown input is turned into latex format \( \)
 * new deck's name to fill in all the flashcards in the expected output:
 

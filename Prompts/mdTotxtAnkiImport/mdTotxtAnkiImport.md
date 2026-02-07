@@ -39,7 +39,7 @@ Important operations (Do them all without mistake):
    third: deck name,
    4th: Front,
    5th: back}
-2. for guid I want you to get the 4first letters of the deck name and add 4 digit numbering to it (total 8 characters like : abcd0001)
+2. for guid I want you to get the 4first letters of the deck name and add 4 digit numbering to it (total 8 characters like : 45ML0001)
 3. count the input data markdwon total flashcards and declare test result of total input and output flashcards.
 4. make sure any "`$$`" or "`$$$$`""  math expression in markdown input is turned into latex format \( \)
 5. new deck's name to fill in all the flashcards in the expected output:

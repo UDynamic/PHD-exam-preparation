@@ -1,0 +1,7 @@
+#separator:tab
+#html:true
+#guid column:1
+#notetype column:2
+#deck column:3
+#tags column:6
+G@eD-a1z$R	Basic	ML-LinearRegression	<h3>Loss function for LR</h3>	Negative of the Maximum Likelihood	

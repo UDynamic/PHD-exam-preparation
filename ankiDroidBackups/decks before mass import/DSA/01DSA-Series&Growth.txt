@@ -1,0 +1,42 @@
+#separator:tab
+#html:true
+#guid column:1
+#notetype column:2
+#deck column:3
+#tags column:6
+nP1W)rYtSm	Basic	DSA-Series&Growth	Order of \(2^{\frac{1}{n}}\)	For \(n \rightarrow \infty\)<br>\(2^{\frac{1}{n}} = 2^{\frac{1}{\infty}} = 2^{0} = 1\)<br><br>\(2^{\frac{1}{n}} = \Theta(1) \quad  \Theta(c)\)	
+n-k`iJ`b$}	Basic	DSA-Series&Growth	Polynomials	"For \(A > 0\):<br><br>\(n^A\)<br><br><span style=""color:pink"">They grow to infinity</span>"	
+RgCLwx(I<j	Basic	DSA-Series&Growth	\(\lim_{n \to \infty}(2^{-n})\)	\(2^{-n} = \frac{1}{2^n}\)<br>\(\lim_{n \to \infty}(2^{-n})\) = \(\lim_{n \to \infty}(\frac{1}{\infty})=0\)	
+cpQOYwHdYH	Basic	DSA-Series&Growth	\(\lim_{n \to \infty}(n^{-2})\)	\(n^{-2}=\frac{1}{n^2}\)<br>\(\lim_{n \to \infty}(n^{-2})= \lim_{n \to \infty}(\frac{1}{\infty}) = 0\)	
+r*,jgss%:A	Basic	DSA-Series&Growth	Exponentials	"For \(A > 1\)<br><br>\(A^n\)<br><br><span style=""color:cyan"">Exponentials grow to \(\infty\)</span><br><br><span style=""color:pink"">For \(|A| < 1\)<br>\(\lim_{n \to \infty}(A^n) = 0\)</span><br><br><span style=""color:pink"">For \(-A > 1\) for application in DSA we assume<br>\(\lim_{n \to \infty}(-A^n) = \Theta(A^n)\)</span>"	
+z+!3dmW$Ht	Basic	DSA-Series&Growth	General Growth orders	"<span style=""color:lime"">\(\log(n) < n^A\)</span> <span style=""color:red"">\(< A^n < n!< n^n \)</span>"	
+j:z>>%tSx:	Basic	DSA-Series&Growth	\(\lim_{n \to \infty}(n^{-\frac{1}{2}})\)	\(n^{-\frac{1}{2}} \) =\( \frac{1}{\sqrt{n}}\)<br><br>\(\lim_{n \to \infty}(n^{-\frac{1}{2}}) = \frac{1}{\infty} = 0\)	
+G|7`M1@hr:	Basic	DSA-Series&Growth	The absorption rule	In polynomials only the biggest \(\Theta\) is considered. <br>Also the Constant Multiplier doesn't matter. 	
+b,<<E|fA&;	Basic	DSA-Series&Growth	Growth of \(\log\) family	"\(\log^*(n) <\log(\log(n)) < \log(n) < \log^2(n) \)<br><br><span style=""color:pink"">The base doesn't change the Growth speed</span>"	
+f4|v6~%8wn	Basic	DSA-Series&Growth	\( \text{Order of} (\log(n^2))\)	"\(\log(n^2) = 2\log(n)\)<br>\(\rightarrow\)<br> \(\Theta(\log(n))\)<br><br><br><span style=""color:pink"">\(\Theta{\log(n^2)} \text{ vs } \Theta{\log^2(n)}\)</span><br><span style=""color:pink"">\(\log^*(n) <\log(\log(n)) < \log(n) < \log^2(n) \)</span>"	
+oy%^fK@H2(	Basic	DSA-Series&Growth	Sterling approximation of \(n!\)	"For \(n \to \infty\)<br>\(n! = (\frac{n}{e})^n(\sqrt{n})(\sqrt{2\pi})\)<br><br><span style=""color:pink"">\(\log(n!) = \Theta(n\log(n))\)</span><br><br><span style=""color:pink"">\(\sum_{i =1}^n \log(i) = \log(n!) = \Theta(n\log(n))\)</span>"	
+j_3Y%J|.^<	Basic	DSA-Series&Growth	Growth for Factorials	\(n! < (n+1)!< (n+2)!< \dots\)	
+n&&mf>:ZaK	Basic	DSA-Series&Growth	Taylor's estimation of \(e^x\)	\(e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!}\)<br><br>\( = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \cdots\)	
+FZg=(Ca|2,	Basic	DSA-Series&Growth	<h3>L’Hospital’s Rule for Limits</h3>	\( \lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)} \)	
+t$0g9}REnP	Basic	DSA-Series&Growth	\(\frac{d }{dx} \log(x)\)	\(\frac{d }{dx} \log(x) = \frac{1}{x}\)	
+"nN~Vi0Oj2#"	Basic	DSA-Series&Growth	\( \lim_{x \to \infty} \frac{x^n}{e^x} \)	"\( \lim_{x \to \infty} \frac{x^n}{e^x} = 0\)<br><br><span style=""color:pink"">\(e^x\) stays the same, <br>L'Hopital until the Polinomial dies</span>"	
+CnJBc9mJw&	Basic	DSA-Series&Growth	\( \lim_{x \to \infty} \frac{\sin(x)}{x} \)	\(-1 \leq \sin(x) \leq 1\)<br><br>\( \lim_{x \to \infty} \frac{\sin(x)}{x} = 0\)	
+A;(0!%vWN>	Basic	DSA-Series&Growth	\(e^{\ln(x)}\)	\(e^{\ln(x)}= x^{ln(e)} = x\)	
+l?6{43[K4)	Basic	DSA-Series&Growth	<h3>\(\lim_{x \to \infty} x^{1/x}\)</h3>	Indeterminate form of the type  \(\infty^0\)<br>\(y = x^{1/x} \quad, y = e^{\ln(y)}\)<br><br>\(\ln y = \ln\left(x^{1/x}\right) = \frac{1}{x} \ln x\) <br><br>\(\lim_{x \to \infty} \ln y = \frac{\ln x}{x} =\frac{\frac{1}{x}}{1} = 0\)<br><hr><br>\(\lim_{x \to \infty} y = e^0 = 1\)	
+7JzPB7<gR	Basic	DSA-Series&Growth	<h3>\(\frac{d}{dx} \log(\log(x))\)</h3>	\(\frac{d}{dx} \log(\log(x)) = \frac{1}{x\log(x)}\)	
+"Dv*s.3Z]d#"	Basic	DSA-Series&Growth	<h3>Growth of \(\log(f(x)!)\)</h3>	\(\log(f(x)!)\) = \(\Theta(f(x) \log(f(x))\)	
+d%;]7^xa<Y	Basic	DSA-Series&Growth	<h3>Inequality rules for <br>\(0 < a < b \quad 0 < c < d\)</h3>	\( \begin{cases}a + c < b + d,& \text{True}\\ <br>a - c \not< b - d,&\text{Not necessarily}\\<br>ac < bd,&\text{True}\\<br>\frac{a}{c} \not< \frac{b}{d},&Not \text{necessarily}\end{cases}\)	
+65(+DyvsY	Basic	DSA-Series&Growth	<h3>\( O(h) \) if<br>\(h(x) = \begin{cases} f(x),& O(f(x))\\ g(x),& O(g(x))\end{cases}\)</h3>	\( O(h) = \min\{O(f(x)), O(g(x))\}\)	
+FinV$7JQD:	Basic	DSA-Series&Growth	<h3>\(n^{O(1)}\)</h3>	For \(c > 0\):<br>\(n^{O(1)} = O(n^c)\)	
+oZQ]%~<LP0	Basic	DSA-Series&Growth	Master's Theorem	"for \(T(n) = A T(\frac{n}{b} + f(n))\)<br><br>\(p=\log_bA\)<br><br><span style=""color:lime"">We only compare the polynomial degree of \(n^p\) with \(f(n)\) :</span><br><br>\( \begin{cases}n^p > f(n) &\quad T(n)=\Theta(n^p) \\  n^p \leq f(n), & \quad T(n)=\Theta(f(n) \cdot \log(n)) \end{cases}\)<br><br><span style=""color:pink"">If \(f(n) \approx n^p \)  (same polinomial degree) but  \(n^p < f(n)\) we couldn't use the master's if (otherwise it's the second case) </span>"	
+"pp#p({8N[@"	Basic	DSA-Series&Growth	<h3>Growth of \( \sum_{i=1}^{n} i^k\)</h3>	"\( \sum_{i=1}^{n} i^k \text{~} \frac{1}{k+1} n^{k+1} = \Theta(n^{k+1})\)<br><br><span style=""color:pink"">\( \sum_{i=1}^{n} i = \frac{n(n+1)}{2} = \Theta(n^2)\)</span><br><br><span style=""color:pink"">\( \sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6} = \Theta(n^3)\)</span><br><br><span style=""color:pink"">\( \sum_{i=1}^{n} i^3 = (\frac{n(n+1)}{2})^2 = \Theta(n^4)\)</span>"	
+ee%.ymM|TB	Basic	DSA-Series&Growth	<h3>Growth of \( \sum_{i=1}^{n} \frac{1}{i}\)</h3>	"\( \sum_{i=1}^{n} \frac{1}{i} = \ln(n) = \Theta(\log(n))\)<br><br><span style=""color:pink"">Whenever the Denominator of the elements increase by constant value c the same asymptotic rule applies </span><br><span style=""color:pink"">\(\frac{1}{3}+\frac{1}{5}+\frac{1}{7} + \dots = \Theta(\log(n))\)</span><br><br><span style=""color:pink"">Whenever the Denominator of the elements keeps increasing by bigger values each time, the series is converging to a constant c </span><br><span style=""color:pink"">\(\frac{1}{3}+\frac{1}{8}+\frac{1}{15} + \dots = \Theta(c)\)</span<br><br>"	
+wz*nJt-s8&	Basic	DSA-Series&Growth	<h3>\(\Theta\)</h3>	\(=\)	
+dkx<=$ngbv	Basic	DSA-Series&Growth	<h3>\(O\)</h3>	\(\leq\)	
+gFP6tn/]ja	Basic	DSA-Series&Growth	<h3>\(o\) (small)</h3>	\(<\)	
+yIfU^:dN~:	Basic	DSA-Series&Growth	<h3>\(\Omega\)</h3>	\(\geq\)	
+A]oPPz)VH%	Basic	DSA-Series&Growth	<h3>\(\omega\)</h3>	\(>\)	
+J?zkJ5+g)L	Basic	DSA-Series&Growth	<h3>\(\lim \frac{f(x)}{g(x)} = 0\)</h3>	\(\leftrightarrow\)<br>\(g(n) \in \omega(f(n))\)<br>\(f(n) \in o(g(n))\)	
+ikOtYu1SnF	Basic	DSA-Series&Growth	<h3>\(\lim \frac{f(x)}{g(x)} = c \neq 0\)</h3>	\(\leftrightarrow\)<br>\(f(n) \in \Theta(g(n))\)<br>Or<br>\(g(n) \in \Theta(f(n))\)	
+fOg8-ZVx}r	Basic	DSA-Series&Growth	<h3>\(\lim \frac{f(x)}{g(x)} = \infty\)</h3>	\(\leftrightarrow\)<br>\(f(n) \in \omega(g(n))\)<br>\(g(n) \in o(f(n))\)	
+GAG,8K,zv]	Basic	DSA-Series&Growth	<h3>effect of log on \(f(n) < g(n)\)</h3>	"Could stay \(f(n) < g(n)\)<br><span style=""color:cyan"">\(f(n) \in o(g(n))\)</span><br><br>And maybe \(f(n) \leq g(n)\)<br><span style=""color:cyan"">\(f(n) \in O(g(n))\) or \(\Theta(g(n))\)</span>"	

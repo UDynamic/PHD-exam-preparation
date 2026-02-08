@@ -1,0 +1,11 @@
+#separator:tab
+#html:true
+#guid column:1
+#notetype column:2
+#deck column:3
+#tags column:6
+q[6MjIb^kb	Basic	ML-Evaluation	Accuracy	"<span style=""color:gold""> Ts Above all</span><br><br>How often is the classifier correct<br><br><br>\(Accuracy = \frac{TP + TN}{TP + TN + FP + FN}\)<br><br>"	
+t%ObJ)|9.!	Basic	ML-Evaluation	Precision	"<span style=""color:gold"">P for Predicted Positive</span><br><br>In all Predicted Positives how many where True<br><br>\(Precision = \frac{TP}{TP + FP}\)<br>"	
+P];X+G_=T:	Basic	ML-Evaluation	Recall (Sensitivity)	"<span style=""color:gold"">True Positive</span> over the sum with the opposite<br><br>\(Recall_{Sensitivity} = \frac{TP}{TP + FN} \)<br><br><span style=""color:pink"">\(Recall_{Sensitivity}\) \(\neq\) Specificity </span><br><span style=""color:gold"">RecSen is Smoother</span>"	
+r:?h4ZK~4~	Basic	ML-Evaluation	Specificity	"<span style=""color:gold"">True Negative </span>over the sum with the Opposite<br><br>\(Specificity = \frac{TN}{TN + FP}\)<br><br><span style=""color:pink"">Recall_Sensitivity \(\neq\) Specificity</span>"	
+jGND$h!Cf(	Basic	ML-Evaluation	F1 Score	"<span style=""color:gold"">2 to Two Positives</span><br><br>\(F1 Score = 2 \frac{Precision * Recall}{Precision + Recall} \)<br><br>\(Precision = \frac{TP}{TP + FP}\)<br><br>\(Recall_{Sensitivity} = \frac{TP}{TP + FN}\) <br>"	

@@ -1,0 +1,7 @@
+#separator:tab
+#html:true
+#guid column:1
+#notetype column:2
+#deck column:3
+#tags column:6
+F[1FB-8[;6	Basic	ML-LogisticRegression	<h3>Loss function for LgR</h3>	<br>Negative of the Maximum Likelihood	

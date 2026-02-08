@@ -239,6 +239,14 @@
 - **Large/Complex Hypothesis Space (e.g., deep trees, high-degree polynomials):** High risk of overfitting. The model can find a hypothesis that fits the training data very closely, including its noise. This leads to **low bias but high variance**.
 - **Small/Simple Hypothesis Space (e.g., linear models, shallow trees):** Low risk of overfitting, but high risk of **underfitting**. The model may lack the capacity to capture the true pattern, leading to **high bias but low variance**.
 
+## 64 - Feature Space Dimensionality and Overfitting Risk
+
+**Front:** How does the number of features (dimensionality of the feature space) influence the risk of overfitting for a given dataset size?
+**Back:**
+
+- **High-Dimensional Feature Space (many features):** High risk of overfitting, especially if the number of training instances is not proportionally large. This is the **curse of dimensionality**. The data becomes extremely sparse, making it easy for a flexible model (like a deep tree) to find spurious patterns that fit the noise.
+- **Low-Dimensional Feature Space (few features):** Lower inherent risk of overfitting. The data is denser, and models are more constrained, making it easier to learn a generalizable pattern with fewer data points. However, too few features can cause underfitting if they are not informative.
+
 ## 59 - Training Data Size and Overfitting Risk (Part 1)
 
 **Front:** For a fixed model complexity, how does the size of the training dataset affect the risk of overfitting?

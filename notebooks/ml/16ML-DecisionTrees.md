@@ -448,7 +448,7 @@ Finding the **optimal** Decision Tree (e.g., the smallest tree that perfectly fi
 
 **Front:** Under what theoretical condition can a Decision Tree (like one built by ID3) achieve zero error on its training dataset?
 **Back:**
-Consistent dataset. A Decision Tree can achieve **zero training error** if, in the training data, **no two instances with identical feature vectors belong to different classes**. That is, each unique point in the feature space must be associated with only one label. Given enough depth, the tree can isolate every training point into its own pure leaf node. 
+Consistent dataset. A Decision Tree can achieve **zero training error** if, in the training data, **no two instances with identical feature vectors belong to different classes**. That is, each unique point in the feature space must be associated with only one label. Given enough depth, the tree can isolate every training point into its own pure leaf node.
 
 ## 35 - Pruning: Core Concept & Goal
 
@@ -500,8 +500,6 @@ where $R(T)$ is the misclassification error, $|\tilde{T}|$ is the number of leaf
 **Back:**
 The key risk is **removing a subtree that actually captures a meaningful, generalizable pattern in the data**, especially if the pattern is subtle or requires multiple splits to express. This is an **information loss**, potentially increasing bias (underfitting). The goal of pruning is to remove branches that model noise, not signal, which is a non-trivial distinction.
 
-
-
 ## 65 - Maximum Height of a Decision Tree (Binary Features)
 
 **Front:** For a dataset with $m$ instances, each described by $d$ binary features, what is the theoretical maximum height (or depth) of a fully-grown, non-pruned decision tree?
@@ -522,7 +520,6 @@ The theoretical maximum number of leaves is **$\min(m, 2^d)$**.
 - **Bounded by data ($m$):** You cannot have more leaves than there are distinct training instances, as each leaf corresponds to at least one data point in a pure tree.
 - **Bounded by features ($2^d$):** With $d$ binary features, the feature space defines at most $2^d$ unique "cells" or possible combinations of feature values. A leaf represents one such cell. Even with infinite data, you cannot create leaves for non-existent feature combinations.
   Therefore, the maximum is the smaller of these two limits.
-
 
 ## 70 - Effect of Feature Scaling/Normalization on Decision Trees
 

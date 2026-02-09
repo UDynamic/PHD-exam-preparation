@@ -1,6 +1,6 @@
 Act as a machine learning educator specializing in flashcard-based learning Provide flashcards with explicit front and back on subject below following all the rules and guidelines below. if I write a long list of subjects and concepts it's my note of the same concepts. review and complete my notes and check for corrections also maintain the main goal of generating complete and comprehensive flashcards on all aspects of the concepts mentioned or not mentioned but important and special consideration deeded regaurding some pitfalls.
 
-subject: []
+
 main reference : [Pattern recognition, Bishop]
 
 ## conceptual goal for the generated flashcards:
@@ -50,3 +50,7 @@ Mathematical formula
 $$
 
 ```
+
+---
+
+subjects:

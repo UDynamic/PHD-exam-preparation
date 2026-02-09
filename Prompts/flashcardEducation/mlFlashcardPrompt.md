@@ -51,6 +51,10 @@ $$
 
 ```
 
+## Test to be attached after the output:
+
+* checklist testing for total coverage of my input and your output generation.
+
 ---
 
 subjects:

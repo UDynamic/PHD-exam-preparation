@@ -3,18 +3,20 @@ Act as a machine learning educator specializing in flashcard-based learning Prov
 subject: []
 main reference : [Pattern recognition, Bishop]
 
-## goal of the flashcards:
+## conceptual goal for the generated flashcards:
 
-1. start from zero. define concepts.
+1. start from zero, define everything and everyparameter but be short.
 2. maximize education and coverage of the basic to the advanced concepts.
-3. pitfalls and special considerations added to the end must to have
+3. must add pitfalls and special considerations at the end.
 4. the general order of the flashcards must be in the conceptual order and most related consepts be nearest to each other
+5. I might be wrong explaining something in my notes, you right the correct version of the concept in your generated output.
+6. if I'm wrong somewhere in my notes make sure to add it as a pitfall.
 
 ## Important Guidelines and rules for flashcards:
 
-1. very important: Flashcards must be short. if any subject is too braod, split it into subsections and different flashcards.
+1. very important: Flashcards must be short. if any subject is too broad, split it into subsections and different flashcards.
 2. use numbering on the flashcard titles and give a full list in one block
-3. be aware of more specific requirements and request that are written inside brackets all over the content: []
+3. be aware of more specific requirements and request that are written inside brackets starting with ! all over the content, like this : [! do this also for this one topic]
 
 ## Expected output formatting :
 

@@ -1,4 +1,4 @@
-Act as a machine learning educator specializing in flashcard-based learning Provide flashcards with explicit front and back on subject below following all the rules and guidelines below. if I write a long list of subjects and concepts it's my note of the same concepts. review and complete my notes and check for corrections also maintain the main goal of generating complete and comprehensive flashcards on all aspects of the concepts mentioned or not mentioned but important and special consideration deeded regaurding some pitfalls
+Act as a machine learning educator specializing in flashcard-based learning Provide flashcards with explicit front and back on subject below following all the rules and guidelines below. if I write a long list of subjects and concepts it's my note of the same concepts. review and complete my notes and check for corrections also maintain the main goal of generating complete and comprehensive flashcards on all aspects of the concepts mentioned or not mentioned but important and special consideration deeded regaurding some pitfalls.
 
 subject: []
 main reference : [Pattern recognition, Bishop]
@@ -10,19 +10,23 @@ main reference : [Pattern recognition, Bishop]
 3. pitfalls and special considerations added to the end must to have
 4. the general order of the flashcards must be in the conceptual order and most related consepts be nearest to each other
 
-## Guidelines and rules for flashcards:
+## Important Guidelines and rules for flashcards:
+
+1. very important: Flashcards must be short. if any subject is too braod, split it into subsections and different flashcards.
+2. use numbering on the flashcard titles and give a full list in one block
+3. be aware of more specific requirements and request that are written inside brackets all over the content: []
+
+## Expected output formatting :
 
 1. Your respond must be only one markdown code block.
+
 2. mathematical expressions must be written using Latex inside $$
 3. write the name of the concept of focus as headlines
-4. very important: Flashcards must be short. if any subject is too braod, split it into subsections and different flashcards.
-5. use numbering on the flashcard titles and give a full list in one block
 
-## formatting of the markdown block for flashcards:
+Formatting of the output markdown block:
 
-"""
-
-## topic_1
+```markdown
+## 01. topic_1
 
 **Front:** Question?
 **Back:**
@@ -32,7 +36,7 @@ $$
 Mathematical formula
 $$
 
-## topic_1
+## 02. topic_1
 
 **Front:** Question ?
 **Back:**
@@ -42,4 +46,4 @@ $$
 Mathematical formula
 $$
 
-"""
+```

@@ -11,6 +11,7 @@ main reference : [Pattern recognition, Bishop]
 4. the general order of the flashcards must be in the conceptual order and most related consepts be nearest to each other
 5. I might be wrong explaining something in my notes, you right the correct version of the concept in your generated output.
 6. if I'm wrong somewhere in my notes make sure to add it as a pitfall.
+7. Avoid duplication
 
 ## Important Guidelines and rules for flashcards:
 
@@ -20,10 +21,10 @@ main reference : [Pattern recognition, Bishop]
 
 ## Expected output formatting :
 
-1. Your respond must be only one markdown code block.
-
-2. mathematical expressions must be written using Latex inside $$
-3. write the name of the concept of focus as headlines
+1. all the coneptual goal and guidelines and rules must be followed.
+2. Your respond must be only one markdown code block.
+3. mathematical expressions must be written using Latex inside $$
+4. write the name of the concept of focus as headlines
 
 Formatting of the output markdown block:
 

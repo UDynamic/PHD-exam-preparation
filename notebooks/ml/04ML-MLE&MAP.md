@@ -54,9 +54,9 @@ $$
 p(x) = \int p(x | \theta) p(\theta) d\theta
 $$
 
-## simple remembring trick 
+## simple remembring trick
 
-**Front:** distinguish between Posterior, Prior and likelihood?
+**Front:** how to remember bayes theorem's formulas?
 **Back:**
 Ps like $\theta$:
 

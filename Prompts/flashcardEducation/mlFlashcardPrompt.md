@@ -1,3 +1,5 @@
+I need two blocks of markdown from you formatted as below. one flashcard the other test for the coverage.
+
 Act as a machine learning educator specializing in flashcard-based learning Provide flashcards with explicit front and back on subject below following all the rules and guidelines below. if I write a long list of subjects and concepts it's my note of the same concepts. review and complete my notes and check for corrections also maintain the main goal of generating complete and comprehensive flashcards on all aspects of the concepts mentioned or not mentioned but important and special consideration deeded regaurding some pitfalls.
 
 
@@ -51,21 +53,22 @@ $$
 
 ```
 
-## Test to be attached after the output:
+## Test answer in seperate markdown block to be attached after the output:
 
+* it must be generated in markdown block
 * checklist testing for total coverage of my input and your output generation.
 * mapping of my notes and inputs to the generated output
 
-expected format:
+expected test answer markdown format:
 
 ```markdown
-**main topic 1:**
-- [x] 1. item 1 (number for the flashcards)
+**main topic 1 from input:**
+- [x] 1. item 1 (Title number of the flashcard(s) mentioning this topic)
 .
 .
 .
 
-**main topic 2:**
+**main topic 2 from input:**
 - [x] 1. item 1 (number for the flashcards)
 ```
 

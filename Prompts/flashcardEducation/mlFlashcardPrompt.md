@@ -54,6 +54,20 @@ $$
 ## Test to be attached after the output:
 
 * checklist testing for total coverage of my input and your output generation.
+* mapping of my notes and inputs to the generated output
+
+expected format:
+
+```markdown
+**main topic 1:**
+- [x] 1. item 1 (number for the flashcards)
+.
+.
+.
+
+**main topic 2:**
+- [x] 1. item 1 (number for the flashcards)
+```
 
 ---
 

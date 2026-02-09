@@ -54,6 +54,18 @@ $$
 p(x) = \int p(x | \theta) p(\theta) d\theta
 $$
 
+## simple remembring trick 
+
+**Front:** distinguish between Posterior, Prior and likelihood?
+**Back:**
+Ps like $\theta$:
+
+Posterior: $p(\theta|x)$
+
+Prior: $p(\theta)$
+
+Likelihood: $p(x|\theta)$
+
 ## Maximum A Posteriori (MAP) Estimation
 
 **Front:** What is the Maximum A Posteriori (MAP) estimate $\hat{\theta}_{MAP}$?

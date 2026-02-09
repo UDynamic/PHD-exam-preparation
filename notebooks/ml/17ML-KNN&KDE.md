@@ -362,6 +362,39 @@ No. You must multiply each class density by its **prior probability** $\hat{P}(C
 **Back:**
 A kernel function that gives **continuous, decaying weights** to points based on their distance, rather than a hard 0/1 cutoff. The Gaussian kernel is the most common example of a soft window.
 
+## 23. Soft Windows in KDE
+
+**Front:** What is the mathematical property of a "soft" kernel window in KDE, and what does the argument $u$ represent?
+**Back:**
+A soft window uses a kernel function $K(u)$ that is **continuous** and gives non-zero weight to all points, with the weight **smoothly decaying** as distance increases. It has no hard boundary.
+
+**Definition of $u$:** $u = \frac{x - x^{(i)}}{h}$, where:
+
+- $x$ is the query point where we estimate density
+- $x^{(i)}$ is the $i$-th training data point
+- $h$ is the bandwidth parameter
+  Thus, $u$ is the **normalized distance** from the query point to a training point.
+
+**Gaussian (soft) example:**
+
+$$
+K_{\text{Gauss}}(u) = \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}u^2}
+$$
+
+All points contribute, but far points (large $|u|$) have exponentially small weight.
+
+**Rectangular (hard) example:**
+
+$$
+K_{\text{Rect}}(u) = 
+\begin{cases} 
+1 & \text{if } |u| \leq 0.5 \\
+0 & \text{otherwise}
+\end{cases}
+$$
+
+Points outside the cutoff ($|u| > 0.5$) get exactly zero weight.
+
 ## 24. Effect of h in Gaussian KDE
 
 **Front:** How does the bandwidth h (σ) affect a Gaussian KDE estimate visually and conceptually?
@@ -369,6 +402,53 @@ A kernel function that gives **continuous, decaying weights** to points based on
 
 - **Small h:** Kernels are narrow spikes on each data point. Density estimate is **noisy, multi-modal, follows data closely** (low bias, high variance). Risk of overfitting.
 - **Large h:** Kernels are wide, overlapping blobs. Density estimate is **over-smoothed, unimodal, loses detail** (high bias, low variance). Risk of underfitting.
+
+## 38. Gaussian Kernel: General Formulation
+
+**Front:** What is the general d-dimensional Gaussian kernel formulation for KDE, including the bandwidth parameter $\sigma$?
+**Back:**
+The Gaussian kernel with bandwidth $\sigma$ (often denoted $h$) is:
+
+$$
+K_{\sigma}(u) = \frac{1}{(\sqrt{2\pi}\sigma)^d} \exp\left(-\frac{\|u\|^2}{2\sigma^2}\right)
+$$
+
+where:
+
+- $u = \frac{x - x^{(i)}}{\sigma}$ is the normalized distance vector
+- $d$ is the dimensionality
+- $\|u\|$ is the Euclidean norm
+- $\sigma = h$ controls the "width" or spread of the kernel
+
+The full Parzen estimate becomes:
+
+$$
+\hat{p}(x) = \frac{1}{n} \sum_{i=1}^n \frac{1}{\sigma^d} K\left(\frac{x - x^{(i)}}{\sigma}\right)
+$$
+
+**Note:** The $\frac{1}{(\sqrt{2\pi}\sigma)^d}$ term ensures the kernel integrates to 1 over $\mathbb{R}^d$.
+
+## 39. Effect of Bandwidth $\sigma$ in Gaussian KDE
+
+**Front:** How does the bandwidth parameter $\sigma$ affect the Gaussian KDE estimate both visually and statistically?
+**Back:**
+**Small $\sigma$ (narrow kernel):**
+
+- Visually: Sharp, spiky peaks at each data point
+- Statistically: Low bias (fits training data closely), high variance
+- Risk: Overfitting, noisy estimate, poor generalization
+- Density estimate: $\hat{p}(x)$ has many modes
+
+**Large $\sigma$ (wide kernel):**
+
+- Visually: Over-smoothed, flat surface
+- Statistically: High bias (misses details), low variance
+- Risk: Underfitting, loses local structure
+- Density estimate: $\hat{p}(x)$ approaches a single broad bump
+
+**Optimal $\sigma$:** Balances bias-variance trade-off, minimizing test error (found via cross-validation).
+
+**Rule of thumb:** $\hat{\sigma} \approx 1.06 \cdot \hat{s} \cdot n^{-1/5}$ for 1D data (Silverman's rule), where $\hat{s}$ is sample standard deviation.
 
 ## 25. Parzen Window: Effect of h on Error
 
@@ -405,8 +485,16 @@ In high dimensions ($d$ large), the volume $v = h^d$ becomes astronomically larg
 **Back:**
 **Correction:** Parametric methods use training data **only during training** to estimate parameters. For testing, they use **only the learned parameters**, discarding the training data. It is non-parametric (instance-based) methods that use **all or some training data directly during testing**.
 
-## 30. Pitfall: Overfitting in High Dimensions
+## 40. K-NN Sensitivity: Dimensionality Correction
 
-**Front:** **PITFALL:** Your note says K-NN is sensitive to noise in "low dimensions or features." Clarify the real issue.
+**Front:** Is this statement correct: "K-NN is sensitive to noise in low dimensions or features"?
 **Back:**
-**Clarification:** K-NN is notoriously sensitive in **high-dimensional** spaces (many features). In high dimensions, points become equidistant, the concept of "nearest neighbor" becomes meaningless, and the model effectively memorizes noise (overfits). This is a direct manifestation of the **curse of dimensionality**.
+**No, this is incorrect.** K-NN is actually **most sensitive to noise in HIGH dimensions** (many features), not low dimensions. This is due to the **curse of dimensionality**:
+
+1. **In low dimensions:** Data is relatively dense, distances are meaningful, and the "nearest neighbors" are truly similar. Noise has limited impact.
+2. **In high dimensions:**
+
+   - All points become almost equally distant
+   - The distance metric becomes dominated by noise in irrelevant features
+   - The concept of "nearest neighbor" loses meaning
+   - A few noisy features can completely corrupt the distance calculation

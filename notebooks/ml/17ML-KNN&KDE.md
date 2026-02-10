@@ -493,8 +493,22 @@ In high dimensions ($d$ large), the volume $v = h^d$ becomes astronomically larg
 
 1. **In low dimensions:** Data is relatively dense, distances are meaningful, and the "nearest neighbors" are truly similar. Noise has limited impact.
 2. **In high dimensions:**
-
    - All points become almost equally distant
    - The distance metric becomes dominated by noise in irrelevant features
    - The concept of "nearest neighbor" loses meaning
    - A few noisy features can completely corrupt the distance calculation
+
+## 41. K-NN Training Error
+
+**Front:** Is the training error of k-NN classification always zero?
+**Back:**
+**No, only when k = 1** (under typical conditions).
+
+**Reason:**
+
+- **k = 1:** Each training point is its own nearest neighbor, so it always predicts its own label → 0 training error (barring duplicate points with conflicting labels).
+- **k > 1:** A training point's prediction depends on its k nearest neighbors, which may include points of different classes → non-zero training error possible.
+
+**Special Case:** If all k nearest neighbors of every training point belong to the same class as the point itself, then training error could be zero even for k > 1, but this is rare in practice.
+
+**Pitfall:** Assuming k-NN (like many non-parametric methods) achieves zero training error for any k. This is only guaranteed for k = 1.

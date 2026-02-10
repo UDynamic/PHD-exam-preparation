@@ -245,3 +245,168 @@ This is incorrect. All data points start with equal weight/probability. The algo
 **Front:** Correct this pitfall from the notes: "Decision trees are stable classifiers because of Information Gain."
 **Back:**
 This is incorrect. Decision trees are **unstable** (high-variance) learners. Small data changes can lead to completely different splits/trees, despite using IG. This instability is *why* bagging works so well on them.
+
+---
+
+## 16. Bootstrap Sampling in Bagging
+
+**Front:** What is bootstrap sampling in the context of bagging, and what is its purpose?
+**Back:**
+Bootstrap sampling creates multiple datasets by randomly selecting N samples *with replacement* from the original training set of size N. This produces datasets where some examples appear multiple times and others not at all. The purpose is to introduce diversity among the base learners while keeping the same dataset size.
+
+## 17. Feature Randomization in Random Forest
+
+**Front:** How does Random Forest extend bagging for decision trees through feature randomization?
+**Back:**
+At each split node during tree construction, instead of considering all D features for the optimal split, Random Forest considers only a random subset of m features (typically m = √D or log₂(D)). This decorrelates the trees more effectively than bagging alone, further reducing variance.
+
+## 18. Key Randomization Dimensions in Ensemble Methods
+
+**Front:** What are the two main dimensions of randomization in ensemble methods, and which techniques use them?
+**Back:**
+
+1. **Data Randomization:** Creating different training subsets (e.g., bootstrap samples in bagging).
+2. **Feature Randomization:** Restricting which features are available for learning/splitting (e.g., Random Forest, Random Subspaces).
+
+**Combination:** Random Forest uses BOTH dimensions: bootstrap sampling (data) AND random feature subsets (features).
+
+## 19. Beyond Bagging and Random Forest: Other Randomization Strategies
+
+**Front:** Name other ensemble methods that use randomization and describe their approach.
+**Back:**
+
+- **Random Subspaces:** Train learners on random subsets of features (without bootstrap sampling).
+- **Extremely Randomized Trees (ExtraTrees):** Randomize both feature selection AND split point selection (choosing random thresholds).
+- **Random Patches:** Use random subsets of both samples AND features.
+
+## 20. Correcting the Statement: "Bootstrap is data, Random Forest is features"
+
+**Front:** Is the statement "Bootstrap is random selection of data, Random Forest is random selection of features" accurate? If not, correct it.
+**Back:**
+**This is incomplete/incorrect.**
+
+- **Bootstrap Aggregating (Bagging)** uses only data randomization (bootstrap sampling).
+- **Random Forest** uses BOTH data randomization (bootstrap samples) AND feature randomization (random feature subsets at each split).
+
+**Correct Statement:** "Bagging randomizes data; Random Forest randomizes both data AND features."
+
+## 21. The General Principle: Randomization for Diversity
+
+**Front:** What is the fundamental purpose of introducing randomization in ensemble methods?
+**Back:**
+To create **diverse** base learners that make uncorrelated errors. By training on different data or feature subsets, each learner explores different aspects of the problem. When combined, their errors tend to cancel out, improving robustness and generalization.
+
+## 23. Bagging Low-Variance Models: The Logistic Regression Case
+
+**Front:** Why does bagging logistic regression typically yield minimal improvement?
+**Back:**
+Logistic regression is a **stable, low-variance** model. Its decision boundary is largely deterministic given the training data. Bootstrap samples create very similar models, so the ensemble lacks diversity. Since bagging reduces variance and LR has little variance to reduce, averaging similar predictions offers little benefit. It may even slightly worsen performance due to reduced effective training set size.
+
+---
+
+
+## 35. Pitfall: Misunderstanding Bootstrap Sample Composition
+
+**Front:** What is incorrect about this statement: "Each bootstrap sample contains about 63% of the data, meaning it's missing 37% of the data"?
+**Back:**
+This mischaracterizes the bootstrap process in two ways:
+
+1. **Size Misconception:** A bootstrap sample has **n entries total** (same size as original), not 63% of n. The "63%" refers to the proportion of *unique* data points, not the sample size.
+2. **Missing vs. Replaced:** The sample isn't "missing" 37% of entries — those positions are filled with **duplicates** of other points. Every bootstrap draw selects from all n points, so some are selected multiple times while others are not selected at all.
+
+**Key Clarification:** A bootstrap sample contains approximately 63.2% *unique* original data points, but through repetition, it maintains the original dataset size n.
+
+## 36. Data-Only Randomization: Bagging (Bootstrap Aggregating)
+
+**Front:** Describe an ensemble method that randomizes only the training data, not the features.
+**Back:**
+**Bagging (Bootstrap Aggregating):**
+
+- **Randomization:** Creates multiple bootstrap samples (with replacement) from the original training data. Each learner trains on a different data subset.
+- **Features:** All features are available to all learners.
+- **Base Learners:** Typically high-variance models (deep decision trees).
+- **Purpose:** Reduces variance by averaging over data-induced diversity.
+- **Example:** Bagged Decision Trees (without feature sampling).
+
+## 37. Features-Only Randomization: Random Subspace Method
+
+**Front:** Describe an ensemble method that randomizes only the features, not the training data.
+**Back:**
+**Random Subspace Method:**
+
+- **Randomization:** For each base learner, randomly select a subset of features (e.g., 50% of features). All learners use the *full* training dataset.
+- **Data:** The complete training set is used by all learners.
+- **Base Learners:** Can be any model (decision trees, linear models, etc.).
+- **Purpose:** Creates diversity through different feature perspectives; especially useful for high-dimensional data.
+- **Example:** Random Subspace of Logistic Regressions.
+
+## 38. Both Data & Feature Randomization: Random Forest
+
+**Front:** Describe the canonical ensemble method that randomizes both data AND features.
+**Back:**
+**Random Forest:**
+
+- **Randomization 1 (Data):** Bootstrap sampling (like bagging).
+- **Randomization 2 (Features):** At each split node, consider only a random subset of features (typically m = √D or log₂D).
+- **Base Learners:** Decision trees (usually grown deep without pruning).
+- **Purpose:** Maximizes diversity through dual randomization, leading to greater variance reduction and decorrelation between trees.
+- **Example:** Standard Random Forest algorithm.
+
+## 29. Bootstrap Sample Size: The 63.2% Rule
+
+**Front:** In bagging or Random Forest with bootstrap sampling (n data points), what fraction of the original data appears in a typical bootstrap sample on average?
+**Back:**
+On average, each bootstrap sample contains approximately **63.2%** of the *unique* data points from the original dataset. This means about 36.8% of the original data points are *not* included in a given sample (the "out-of-bag" or OOB samples).
+
+**Calculation:**
+
+probability for any point being selected is $\frac{1}{n}$ so it not being selected is $ 1 - \frac{1}{n}$. for a point never being chosen for n random sampling (Probability a specific point is NOT in a bootstrap sample)  = $(1 - \frac{1}{n})^n$.
+
+For large n, this ≈ $e^{-1} ≈ 0.368$. So probability it IS included ≈ $1 - 0.368 = 0.632$.
+
+## 30. Expected Unique Data Points in a Bootstrap Sample
+
+**Front:** What is the exact expected number of *unique* data points in a bootstrap sample of size n?
+**Back:**
+$E[\text{unique points}] = n \cdot \left(1 - (1 - \frac{1}{n})^n\right)$
+
+For large n, this approaches $n \cdot (1 - e^{-1}) ≈ 0.632n$.
+
+Example: For n=100, $(1 - 1/100)^{100} ≈ 0.366$, so expected unique points ≈ 100 × (1 - 0.366) = 63.4.
+
+## 31. Out-of-Bag (OOB) Samples in Random Forest
+
+**Front:** What are Out-of-Bag (OOB) samples in Random Forest and why are they useful?
+**Back:**
+OOB samples are the ~36.8% of data points *not* included in a particular tree's bootstrap sample. Since these points were not seen during that tree's training, they can be used as a **built-in validation set** to estimate:
+
+1. The tree's performance
+2. The ensemble's generalization error (without needing a separate validation set)
+3. Feature importance scores
+
+## 32. Variation: Sampling Without Replacement (Pasting)
+
+**Front:** In ensemble methods, what happens if we sample *without* replacement instead of bootstrap sampling?
+**Back:**
+This is called **Pasting** (as opposed to Bagging which uses bootstrap). If we sample m < n points without replacement:
+
+- Each tree sees completely different data subsets
+- Lower diversity between trees (no repeated points)
+- Useful for large datasets where bootstrap is computationally expensive
+- Typically requires larger m (e.g., m = 0.8n) to maintain tree quality
+
+## 33. Variation: Feature Sampling Expectation in Random Forest
+
+**Front:** In Random Forest with total D features, if we sample m features at each split, what's the probability a specific feature is considered at a given split?
+**Back:**
+Probability = $\frac{m}{D}$
+
+This means each feature has a $\frac{m}{D}$ chance to be available for consideration at any particular split node. Typically m = $\sqrt{D}$ or $\log_2(D)$, so this probability is relatively small, enforcing feature diversity.
+
+## 34. Variation: Expected Feature Usage Across a Tree
+
+**Front:** In a Random Forest tree of depth L (with ~$2^L$ split nodes), how many times is a specific feature expected to be considered for splitting?
+**Back:**
+Expected considerations = $2^L \cdot \frac{m}{D}$
+
+However, once a feature is used for a split, it may not be available again on the same branch depending on implementation. In practice, features higher in the tree block that feature's reuse in child nodes, making the actual expected usage lower.

@@ -113,3 +113,9 @@ The MAP estimate is just one point. It discards all other information about the 
 **Front:** When can the MAP estimate be problematic?
 **Back:**
 When the prior $p(\theta)$ is chosen poorly (too informative or misspecified) or when the data is scarce, the MAP estimate can be overly influenced by the prior. It's crucial to perform sensitivity analysis.
+
+
+## MAP Convergence to MLE
+
+**Front:** What happens to MAP estimation as the dataset size $n \to \infty$? `<br/>`
+**Back:** MAP converges to MLE. With more data, the likelihood dominates the prior, making the prior's influence negligible, provided the prior gives non-zero probability to the true parameter.

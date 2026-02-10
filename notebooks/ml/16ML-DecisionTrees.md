@@ -527,3 +527,16 @@ The theoretical maximum number of leaves is **$\min(m, 2^d)$**.
 
 **Back:**
 **No.** Decision Trees are **invariant to monotonic transformations** of the features, including scaling and shifting. The split rule $x_j \leq t$ only compares values within the same feature; multiplying or adding a constant does not change the relative order of samples. Therefore, normalization does **not** change the chosen splits, tree shape, decision boundary, or final predictions.
+
+## 72 - Tree Depth Dependence: Features vs. Data Points
+
+**Front:** Is the depth of a decision tree dependent *only* on the number of features, or also on the number of data points?
+
+**Back:**
+**It depends on both, and the constraints used.**
+
+- **Theoretical Upper Bound:** Depth ≤ min(m-1, d), where m = samples, d = features. This shows dependence on both.
+- **Without Constraints (Pure Tree):** More data points (m) can lead to a deeper tree as the algorithm splits to isolate each point or small group, especially if the data is noisy or complex.
+- **With Pruning/Early Stopping:** Depth is controlled by hyperparameters (max_depth, min_samples_leaf) and the algorithm's attempt to balance bias and variance, which indirectly depends on data size and distribution.
+
+**Conclusion:** Depth is **not independent** of the number of data points; more data can lead to deeper trees if the model is allowed to overfit.

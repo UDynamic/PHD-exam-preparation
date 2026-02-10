@@ -15,8 +15,6 @@ more specifically add flashcards on these notes too [ Don't miss on anything] :
 
 ---
 
-
-
 ## 01. Bayes' Theorem for Classification
 
 **Front:** What is the fundamental formula of Bayes' theorem for a class $C_k$ given data point $\mathbf{x}$?
@@ -31,6 +29,30 @@ where:
 $p(\mathbf{x} | C_k)$ is the likelihood.
 $P(C_k)$ is the prior.
 $p(\mathbf{x})$ is the evidence (or marginal likelihood).
+
+## 01. Marginal Likelihood (Evidence)
+
+**Front:** What is $P(\mathbf{x})$, the evidence, in terms of the class priors and likelihoods?
+**Back:**
+The marginal likelihood $P(\mathbf{x})$ is obtained by summing (or integrating) the joint distribution over all possible classes. It is the sum of the numerators of Bayes' theorem for each class, not the sum of posteriors.
+
+$$
+P(\mathbf{x}) = \sum_{k=1}^{K} P(\mathbf{x} \cap C_k) = \sum_{k=1}^{K} p(\mathbf{x} | C_k) P(C_k)
+$$
+
+This ensures the posterior probabilities $P(C_k | \mathbf{x})$ sum to 1.
+
+## 02. Pitfall: Evidence vs. Sum of Posteriors
+
+**Front:** Is $P(\mathbf{x})$ the sum of the posteriors $P(C_k | \mathbf{x})$ for all classes?
+**Back:**
+No, this is incorrect and a common pitfall. The sum of posteriors is always 1 for any $\mathbf{x}$:
+
+$$
+\sum_{k=1}^{K} P(C_k | \mathbf{x}) = 1
+$$
+
+The evidence $P(\mathbf{x})$ is a probability (density) for $\mathbf{x}$ itself. It is a normalization constant that *makes* the posteriors sum to 1, not the result of that sum.
 
 ## 02. The Evidence Term
 
@@ -100,7 +122,21 @@ $$
 \frac{p(\mathbf{x} | C_1)}{p(\mathbf{x} | C_2)} = \frac{P(C_2)}{P(C_1)}
 $$
 
-The class boundary shifts if priors are unequal; higher prior pulls the boundary towards the other class.
+* The class boundary shifts if priors are unequal; higher prior pulls the boundary towards the other class.
+* Stronger prior belief in $C_1$ means you need less evidence (a lower likelihood ratio) from the data $\mathbf{x}$ to classify as $C_1$
+
+## 01. Decision Boundary with Unequal Priors
+
+**Front:** How do unequal class priors $P(C_1)$ and $P(C_2)$ affect the optimal Bayes decision boundary?
+**Back:**
+The boundary shifts. A higher prior for a class expands its decision region. The boundary moves *away* from the more probable class and *towards* the less probable class.
+**Intuition:** Stronger prior belief in $C_1$ means you need less evidence (a lower likelihood ratio) from the data $\mathbf{x}$ to classify as $C_1$. The threshold on the likelihood ratio is lowered, favoring $C_1$ over more of the input space.
+
+## 04. Pitfall: Direction of the Shift
+
+**Front:** Clarify: "Higher prior pulls the boundary towards the other class." Which way does it move?
+**Back:**
+This phrasing can be ambiguous. Precise statement: **A higher prior for class $C_k$ causes the decision boundary to shift *away from* the densest regions of $p(\mathbf{x}|C_k)$ and *into* the region more typical of the other class.** For example, if $P(C_1)$ increases, the boundary moves toward the mean of $C_2$, effectively giving $C_1$ a larger share of the feature space.
 
 ## 08. Classification without Priors (Likelihood-Only)
 
@@ -138,41 +174,124 @@ If $p$ denotes $P(C_1 | \mathbf{x})$, then $P(C_2 | \mathbf{x}) = 1 - p$. This i
 **Back:**
 A matrix $L_{kj}$ specifying the penalty (loss) incurred for assigning a pattern to class $C_j$ when its true class is $C_k$. It generalizes the 0-1 loss (where error counts equally) to applications where some mistakes are more costly than others (e.g., medical diagnosis).
 
-## 12. Expected Risk (Conditional Risk)
+---
 
-**Front:** Given a loss matrix $L$, how is the expected risk (conditional risk) $R(C_j | \mathbf{x})$ for taking action $C_j$ calculated?
+## 11. Loss Matrix: Definition and Structure
+
+**Front:** What is a Loss (or Risk) Matrix L, and how is it indexed for a K-class problem?
 **Back:**
-It's the expected loss for choosing class $C_j$ at point $\mathbf{x}$, averaged over the true classes.
+A K × K matrix L where element L_{kj} quantifies the penalty for predicting class C_j when the true class is C_k.
+**Indices:** The first index k is the **true class**, the second index j is the **predicted class/action**.
+
+$$
+\mathbf{L} = \begin{pmatrix}
+L_{11} & L_{12} & \cdots & L_{1K} \\
+L_{21} & L_{22} & \cdots & L_{2K} \\
+\vdots & \vdots & \ddots & \vdots \\
+L_{K1} & L_{K2} & \cdots & L_{KK}
+\end{pmatrix}
+$$
+
+It generalizes the 0-1 loss to handle asymmetric costs (e.g., false negatives cost more than false positives in disease screening).
+
+## 12. Interpreting Matrix Entries and Common Forms
+
+**Front:** How do you interpret the diagonal and off-diagonal entries of L? What is the 0-1 loss matrix?
+**Back:**
+
+* **Diagonal (L_{kk}):** Loss for a correct prediction. Often 0 (no penalty).
+* **Off-diagonal (L_{kj}, k ≠ j):** Loss for a specific error (predicting j when truth is k).
+* **0-1 Loss Matrix:** L_{kj} = 0 if k = j, and 1 if k ≠ j. All errors are equally costly.
+
+$$
+\mathbf{L}_{0-1} = \begin{pmatrix}
+0 & 1 & \cdots & 1 \\
+1 & 0 & \cdots & 1 \\
+\vdots & \vdots & \ddots & \vdots \\
+1 & 1 & \cdots & 0
+\end{pmatrix}
+$$
+
+## 13. Expected Risk as a Matrix-Vector Product
+
+**Front:** Given posterior vector p(x) and loss matrix L, how is the conditional risk vector R(x) computed?
+**Back:**
+The conditional risk R(C_j | x) for taking action C_j is the expected loss over the true class posteriors. For all actions, it's a matrix-vector product:
+
+$$
+\mathbf{R}(\mathbf{x}) = \mathbf{L}^T \mathbf{p}(\mathbf{x})
+$$
+
+where:
+
+$$
+\mathbf{p}(\mathbf{x}) = \begin{bmatrix} P(C_1|\mathbf{x}) \\ P(C_2|\mathbf{x}) \\ \vdots \\ P(C_K|\mathbf{x}) \end{bmatrix},
+\quad
+\mathbf{R}(\mathbf{x}) = \begin{bmatrix} R(C_1|\mathbf{x}) \\ R(C_2|\mathbf{x}) \\ \vdots \\ R(C_K|\mathbf{x}) \end{bmatrix}
+$$
+
+Thus, $ R(C_j|x) = ∑_{k=1}^{K} L_{kj} P(C_k|x) $ is the dot product of the j-th column of L with p(x).
+
+## 13. Expected Risk as a Matrix-Vector Product
+
+**Front:** Given the posterior vector p(x) and loss matrix L, how is the conditional risk for action C_j computed using vector notation?
+**Back:**
+The conditional risk $ R(C_j | \mathbf{x}) $ is the dot product between the **j-th column of the loss matrix L** and the posterior probability vector p(x).
 
 $$
 R(C_j | \mathbf{x}) = \sum_{k=1}^{K} L_{kj} P(C_k | \mathbf{x})
 $$
 
-The optimal decision minimizes this conditional risk.
+In vector form, if we let $ \mathbf{l}_j $ represent the j-th column of L, then:
 
-## 13. Bayes Risk Minimizer
+$$
+R(C_j | \mathbf{x}) = \mathbf{l}_j^T \mathbf{p}(\mathbf{x})
+$$
 
-**Front:** What is the Bayes decision rule under a general loss matrix?
+where $ \mathbf{l}_j = [L_{1j}, L_{2j}, ..., L_{Kj}]^T $ and $ \mathbf{p}(\mathbf{x}) = [P(C_1|\mathbf{x}), P(C_2|\mathbf{x}), ..., P(C_K|\mathbf{x})]^T $.
+
+## 14. Risk Column Times Posterior
+
+**Front:** What is the physical interpretation of the operation $ \mathbf{l}_j^T \mathbf{p}(\mathbf{x}) $ for computing conditional risk?
 **Back:**
-For each $\mathbf{x}$, choose the class $C_j$ that minimizes the conditional risk $R(C_j | \mathbf{x})$.
+It is the **expected value of the loss** incurred when taking action j, where the expectation is taken over the uncertainty in the true class. The vector $ \mathbf{l}_j $ contains all possible losses for action j (one for each possible true class), and $ \mathbf{p}(\mathbf{x}) $ contains the probabilities of those true classes given the observation x. Their dot product gives the weighted average loss.
+
+## 14. Optimal Decision Rule with Loss Matrix
+
+**Front:** What is the optimal Bayes decision rule using the conditional risk vector R(x)?
+**Back:**
+Choose the action (class) corresponding to the **minimum element** in the conditional risk vector:
 
 $$
-\text{Assign to } C_j \text{ if } R(C_j | \mathbf{x}) < R(C_m | \mathbf{x}) \text{ for all } m \neq j
+\text{Predict } C_{j^*} \text{ where } j^* = \argmin_{j \in \{1,\dots,K\}} R(C_j | \mathbf{x})
 $$
 
-This minimizes the total expected loss (Bayes risk).
+In vector terms: j^* = argmin R(x). This minimizes the total expected loss (Bayes Risk).
 
 ## 14. Special Case: 0-1 Loss Matrix
 
 **Front:** What does the 0-1 loss matrix look like, and what does the resulting rule become?
 **Back:**
-$L_{kj} = 0$ if $k = j$, and $1$ if $k \neq j$. The conditional risk becomes:
+$L_{kj} = 0$ if $k = j$, and $1$ if $k \neq j$.
+
+$$
+\mathbf{L}_{0-1} = \begin{pmatrix}
+0 & 1 & \cdots & 1 \\
+1 & 0 & \cdots & 1 \\
+\vdots & \vdots & \ddots & \vdots \\
+1 & 1 & \cdots & 0
+\end{pmatrix}
+$$
+
+The conditional risk becomes:
 
 $$
 R(C_j | \mathbf{x}) = \sum_{k \neq j} P(C_k | \mathbf{x}) = 1 - P(C_j | \mathbf{x})
 $$
 
 Minimizing this is equivalent to maximizing the posterior $P(C_j | \mathbf{x})$, recovering the standard Bayes classifier for minimum error.
+
+---
 
 ## 15. Pitfall: Misinterpreting Total Bayes Error
 
@@ -185,3 +304,95 @@ P_{\text{error}} = \int \min[P(C_1 | \mathbf{x}), P(C_2 | \mathbf{x})] p(\mathbf
 $$
 
 It is not simply a function of the priors alone; it depends on the overlap of the class-conditional distributions $p(\mathbf{x} | C_k)$.
+
+
+
+## 01. Bayes Error Rate: Definition
+
+**Front:** What is the Bayes Error Rate (or Bayes Risk for 0-1 loss)?
+**Back:**
+The minimum possible error rate achievable by any classifier for a given classification problem. It is the expected error of the optimal (Bayes) classifier, which makes decisions by selecting the class with maximum posterior probability $P(C_k | \mathbf{x})$.
+
+$$
+P_{\text{error}} = \mathbb{E}_{\mathbf{x}}[\min\{P(\text{error} | \mathbf{x})\}]
+$$
+
+where $P(\text{error} | \mathbf{x}) = 1 - \max_k P(C_k | \mathbf{x})$ is the minimum conditional error at point $\mathbf{x}$.
+
+## 02. Integral Formulation of Bayes Error
+
+**Front:** What is the integral formula for the Bayes error rate?
+**Back:**
+The Bayes error is the expectation of the conditional error over the entire feature space:
+
+$$
+P_{\text{error}} = \int_{\mathcal{X}} \left[1 - \max_k P(C_k | \mathbf{x})\right] p(\mathbf{x}) d\mathbf{x}
+$$
+
+Alternatively, it can be expressed as:
+
+$$
+P_{\text{error}} = 1 - \int_{\mathcal{X}} \max_k [p(\mathbf{x}|C_k)P(C_k)] d\mathbf{x}
+$$
+
+since $p(\mathbf{x}) = \sum_j p(\mathbf{x}|C_j)P(C_j)$.
+
+## 03. Bayes Error for Binary Classification (Explicit Form)
+
+**Front:** For a two-class problem, what is the explicit formula for Bayes error?
+**Back:**
+For classes $C_1$ and $C_2$:
+
+$$
+P_{\text{error}} = \int_{\mathcal{X}} \min\left[P(C_1|\mathbf{x}), P(C_2|\mathbf{x})\right] p(\mathbf{x}) d\mathbf{x}
+$$
+
+Equivalently, using the decision regions $\mathcal{R}_1$ and $\mathcal{R}_2$:
+
+$$
+P_{\text{error}} = P(C_1) \int_{\mathcal{R}_2} p(\mathbf{x}|C_1) d\mathbf{x} + P(C_2) \int_{\mathcal{R}_1} p(\mathbf{x}|C_2) d\mathbf{x}
+$$
+
+where $\mathcal{R}_1$ is where $P(C_1|\mathbf{x}) > P(C_2|\mathbf{x})$, and $\mathcal{R}_2$ is the complement.
+
+## 04. Factors Determining Bayes Error
+
+**Front:** What factors determine the Bayes error rate of a classification problem?
+**Back:**
+
+1. **Class Overlap:** The overlap between class-conditional distributions $p(\mathbf{x}|C_k)$
+2. **Class Priors:** $P(C_k)$
+3. **Dimensionality & Separability:** How well separated the classes are in feature space
+
+The Bayes error is fundamentally determined by the inherent ambiguity in the data - how much the classes overlap in the feature space.
+
+## 05. Bayes Error vs. Empirical Error
+
+**Front:** What is the difference between Bayes error and the error of a trained classifier?
+**Back:**
+
+- **Bayes Error:** Theoretical lower bound on error rate, determined by data distribution. Unachievable if estimated distributions are imperfect.
+- **Empirical Error:** Error rate of a specific classifier on test data. Always $\geq$ Bayes error (asymptotically).
+- **Excess Risk:** Difference between classifier's error and Bayes error, due to model mismatch, finite data, or suboptimal training.
+
+## 06. Estimating Bayes Error in Practice
+
+**Front:** How can we estimate the Bayes error rate in practical problems?
+**Back:**
+
+1. **Monte Carlo Simulation:** Generate data from known distributions and compute error of Bayes classifier
+2. **Plug-in Estimator:** Estimate $p(\mathbf{x}|C_k)$ and $P(C_k)$ from data, then compute integral numerically
+3. **Lower Bounds:** Use information-theoretic bounds (Fano, Hellinger)
+4. **1-NN Error Bound:** For large samples, error of 1-NN classifier $\leq 2 \times$ Bayes error
+
+## 07. Pitfall: Confusion with Minimum Conditional Error
+
+**Front:** What is a common misconception about the relationship between $P(\text{error}|\mathbf{x})$ and $P_{\text{error}}$?
+**Back:**
+Confusing the **pointwise conditional error** $P(\text{error}|\mathbf{x}) = \min\{P(C_1|\mathbf{x}), P(C_2|\mathbf{x})\}$ with the **overall Bayes error** $P_{\text{error}}$. The former is a function of $\mathbf{x}$; the latter is its expectation over $p(\mathbf{x})$. They are not equal except in trivial cases.
+
+## 08. Pitfall: Simplistic Formula Fallacy
+
+**Front:** Why is $P_{\text{error}} \neq \min\{P(C_1), P(C_2)\}$ in general?
+**Back:**
+This formula would only be correct if the classes were **completely separated** (no overlap) and we always guessed the minority class incorrectly. In reality, Bayes error depends on distribution overlap. For example, with equal priors $P(C_1)=P(C_2)=0.5$, Bayes error can range from 0% (perfect separation) to 50% (complete overlap), not fixed at 25% as $\min(0.5,0.5)\times(1-\min(0.5,0.5))=0.25$ would suggest.

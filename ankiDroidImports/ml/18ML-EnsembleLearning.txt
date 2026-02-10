@@ -1,0 +1,46 @@
+#separator:tab
+#html:true
+#guid column:1
+#notetype column:2
+#deck column:3
+#tags column:6
+
+18ML0001	Basic	18ML-EnsembleLearning	Ensemble learning introduction of concept	Ensemble learning combines multiple models to improve predictive performance, reduce variance, and enhance robustness compared to single models.
+18ML0002	Basic	18ML-EnsembleLearning	Simple summation using different fusion functions	Sum, weighted sum, median, minimum, maximum, product - different ways to combine predictions from ensemble models.
+18ML0003	Basic	18ML-EnsembleLearning	Quick remembering of boosting and bagging purpose	Bagging has "a" like parallel, reduces Variance. Boosting is sequential, reduces Bias.
+18ML0004	Basic	18ML-EnsembleLearning	Sequential Ensemble Methods: Boosting - decreases bias	Boosting combines simple models with high bias to lower overall bias, creating a powerful model from weak classifiers.
+18ML0005	Basic	18ML-EnsembleLearning	Boosting: Used by combination of simple models	Combines weaker classifiers (like decision stumps) to form a powerful model through sequential learning.
+18ML0006	Basic	18ML-EnsembleLearning	Decision stump classifier	It's a line - a weak classifier with single decision boundary, used as base learner in boosting algorithms.
+18ML0007	Basic	18ML-EnsembleLearning	Boosting: Weighted combination principle	Uses weighted combination of same classifiers with different parameters; weights initially equal but increase for misclassified data.
+18ML0008	Basic	18ML-EnsembleLearning	AdaBoost algorithm complete definition	Sequential algorithm where classifiers added one by one, iteratively fitting classifiers with increased weights for misclassified data.
+18ML0009	Basic	18ML-EnsembleLearning	AdaBoost: Classifiers added sequentially	One classifier added at a time, each focusing on previously misclassified examples through weight adjustments.
+18ML0010	Basic	18ML-EnsembleLearning	AdaBoost: Weight update mechanism	Wrong classified data will have more weight in the next iteration, making subsequent classifiers focus on difficult cases.
+18ML0011	Basic	18ML-EnsembleLearning	AdaBoost: Data division strategy	Divides data to simple and complex, uses simplest data first and decreases probability for it in next iterations.
+18ML0012	Basic	18ML-EnsembleLearning	AdaBoost: Final classification rule	Weighted vote: \( H_m = \alpha_1 h_1 + \dots + \alpha_m h_m \) then \( \hat{y} = \text{sign}(H_m(x)) \)
+18ML0013	Basic	18ML-EnsembleLearning	AdaBoost: Error threshold requirement	Each weak learner's error must be less than 0.5 (better than random guessing).
+18ML0014	Basic	18ML-EnsembleLearning	AdaBoost: Initial weights	All data points start with equal weight: \( w_i^{(1)} = \frac{1}{n} \)
+18ML0015	Basic	18ML-EnsembleLearning	AdaBoost: Finding classifier at each iteration	Find classifier \( h_m \) that minimizes weighted error: \( \epsilon_m = \sum_{i=1}^n w_i^{(m)} I(h_m(x_i) \neq y_i) \)
+18ML0016	Basic	18ML-EnsembleLearning	AdaBoost: Alpha calculation	\( \alpha_m = \frac{1}{2} \ln\left(\frac{1-\epsilon_m}{\epsilon_m}\right) \)
+18ML0017	Basic	18ML-EnsembleLearning	AdaBoost: Weight update formula	\( w_i^{(m+1)} = w_i^{(m)} \exp(-\alpha_m y_i h_m(x_i)) \) normalized to sum to 1
+18ML0018	Basic	18ML-EnsembleLearning	AdaBoost loss function	\( L(y, H_m(x)) = e^{-y H_m(x)} \) equals \( e \) for different signs, \( 1/e \) for same sign
+18ML0019	Basic	18ML-EnsembleLearning	AdaBoost: Relation between ε and α	The more the error \( \epsilon_m \), the smaller the weight \( \alpha_m \) (since \( \alpha_m = \frac{1}{2}\ln(\frac{1-\epsilon_m}{\epsilon_m}) \))
+18ML0020	Basic	18ML-EnsembleLearning	AdaBoost: Noise data weight behavior	Noise data won't get much weight consistently due to weight update formula: \( w_{i}^{(m+1)} \propto w_i^{(m)} \exp(-\alpha_m y_i h_m(x_i)) \)
+18ML0021	Basic	18ML-EnsembleLearning	AdaBoost: Error requirement	For each classifier, if error is less than 0.5, it's good enough for boosting.
+18ML0022	Basic	18ML-EnsembleLearning	AdaBoost: Training error bound	\( E_{\text{train}}(H_m) \leq \prod_{t=1}^m 2\sqrt{\epsilon_t(1-\epsilon_t)} \)
+18ML0023	Basic	18ML-EnsembleLearning	AdaBoost: Training error behavior	Total training error decreases with each iteration (monotonically non-increasing).
+18ML0024	Basic	18ML-EnsembleLearning	AdaBoost: Weighted error trend	Weighted error of each classifier tends to increase with each iteration as focus shifts to harder examples.
+18ML0025	Basic	18ML-EnsembleLearning	AdaBoost: Test error behavior	Test error could keep decreasing even after training error has converged.
+18ML0026	Basic	18ML-EnsembleLearning	AdaBoost: Overfitting conditions	Overfitting doesn't happen normally unless: 1) too noisy data, 2) so much class overlap
+18ML0027	Basic	18ML-EnsembleLearning	AdaBoost: Exponential loss decrease	At each iteration, if weighted loss better than random, exponential loss will definitely decrease.
+18ML0028	Basic	18ML-EnsembleLearning	AdaBoost: Overfitting solutions	1) Stop after optimal iterations, 2) Use cross-validation to determine best number of iterations
+18ML0029	Basic	18ML-EnsembleLearning	Boosting vs Bagging: Robustness comparison	Bagging is more robust but boosting more sensitive and may overfit to noise due to weight focusing.
+18ML0030	Basic	18ML-EnsembleLearning	Parallel Ensemble Methods: Bagging definition	Bootstrap Aggregation: Uses random subsets of training data with replacement, then voting/averaging predictions.
+18ML0031	Basic	18ML-EnsembleLearning	Bagging: Decreases variance	Used on models with low bias and high variance (models that tend to overfit like decision trees).
+18ML0032	Basic	18ML-EnsembleLearning	Reasons for bagging on decision trees	1) Simple models, 2) Low sensitivity to noise due to Information Gain criteria, 3) Low bias, high variance nature
+18ML0033	Basic	18ML-EnsembleLearning	Bagging performance guarantee requirement	Classifiers must be diverse so when one performs poorly, others compensate.
+18ML0034	Basic	18ML-EnsembleLearning	Diversification methods in ensembles	1) Different datasets (bootstrapping), 2) Unstable classifiers (high variance), 3) Different feature subsets
+18ML0035	Basic	18ML-EnsembleLearning	Stable vs Unstable classifiers	Unstable classifiers change predictions significantly with small data changes; stable classifiers don't. Decision trees are unstable.
+18ML0036	Basic	18ML-EnsembleLearning	Random Forest algorithm	For T subtrees with m < D features: 1) Bootstrap sample data, 2) Randomly select m features, 3) Build tree, 4) Aggregate by majority vote
+18ML0037	Basic	18ML-EnsembleLearning	Random Forest: Double randomization	Drawing bootstrap in random forest involves both data samples (rows) and features (columns) randomization.
+18ML0038	Basic	18ML-EnsembleLearning	Random Forest: Final decision rule	Sum voting: Final label determined by majority vote across all trees in the forest.
+18ML0039	Basic	18ML-EnsembleLearning	Bagging weight scheme	Uses same weights for all base models (equal voting), unlike boosting which uses different weights based on performance.

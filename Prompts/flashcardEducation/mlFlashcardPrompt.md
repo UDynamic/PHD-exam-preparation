@@ -74,4 +74,8 @@ expected test answer markdown format:
 
 ---
 
-subjects:
+## subject: {#### to be filled #### (definition, formulation and everything)} 
+
+### more specifically add flashcards on these notes too [ Don't miss on anything] :
+
+1. {### to be filled ####}

@@ -229,8 +229,6 @@ A matrix $L_{kj}$ specifying the penalty (loss) incurred for assigning a pattern
 
 ---
 
-
-
 ## 43. Decision Boundary for Gaussian Binary Classification
 
 **Front:** Derive the Bayes decision boundary for two classes with Gaussian class-conditional densities:
@@ -344,7 +342,6 @@ $$
 
 which is a hyperplane perpendicular to the line joining the means.
 
-
 ## 46. Condition for Minimum Error in Linear Classification
 
 **Front:** Under what conditions is the Bayes optimal decision boundary **linear** for binary classification?
@@ -396,6 +393,87 @@ $$
 $$
 
 **Result:** The left side is **linear in x**, right side is constant → **linear decision boundary**.
+
+---
+
+## 51. Worked Example: Binary Gaussian Classification with Equal Covariance
+
+**Front:** Given binary classes with equal covariance matrix, class means $\boldsymbol{\mu}_1 = [0,0]^T$, $\boldsymbol{\mu}_2 = [3,3]^T$, and precision matrix $\boldsymbol{\Sigma}^{-1} = \begin{bmatrix} 0.95 & -0.15 \\ -0.15 & 0.55 \end{bmatrix}$, classify the point $\mathbf{x} = [1, 2.2]^T$ assuming equal priors $P(C_1) = P(C_2) = 0.5$.
+
+**Back:**
+**Step 1: Recall the decision rule for equal covariance and equal priors.**
+
+With equal priors and equal covariance, the Bayes optimal decision is to assign $\mathbf{x}$ to the class with the **smaller Mahalanobis distance**:
+
+$$
+\text{Assign to } C_1 \text{ if } D_M(\mathbf{x}, \boldsymbol{\mu}_1) < D_M(\mathbf{x}, \boldsymbol{\mu}_2)
+$$
+
+where $D_M(\mathbf{x}, \boldsymbol{\mu}_k) = \sqrt{(\mathbf{x} - \boldsymbol{\mu}_k)^T \boldsymbol{\Sigma}^{-1} (\mathbf{x} - \boldsymbol{\mu}_k)}$.
+
+**Step 2: Compute Mahalanobis distance to $C_1$.**
+
+$\mathbf{x} - \boldsymbol{\mu}_1 = \begin{bmatrix} 1 - 0 \\ 2.2 - 0 \end{bmatrix} = \begin{bmatrix} 1 \\ 2.2 \end{bmatrix}$
+
+First compute $(\mathbf{x} - \boldsymbol{\mu}_1)^T \boldsymbol{\Sigma}^{-1}$:
+
+$$
+\begin{bmatrix} 1 & 2.2 \end{bmatrix} \begin{bmatrix} 0.95 & -0.15 \\ -0.15 & 0.55 \end{bmatrix} = \begin{bmatrix} (1)(0.95) + (2.2)(-0.15) & (1)(-0.15) + (2.2)(0.55) \end{bmatrix}
+$$
+
+$$
+= \begin{bmatrix} 0.95 - 0.33 & -0.15 + 1.21 \end{bmatrix} = \begin{bmatrix} 0.62 & 1.06 \end{bmatrix}
+$$
+
+Now compute $(\mathbf{x} - \boldsymbol{\mu}_1)^T \boldsymbol{\Sigma}^{-1} (\mathbf{x} - \boldsymbol{\mu}_1)$:
+
+$$
+\begin{bmatrix} 0.62 & 1.06 \end{bmatrix} \begin{bmatrix} 1 \\ 2.2 \end{bmatrix} = (0.62)(1) + (1.06)(2.2) = 0.62 + 2.332 = 2.952
+$$
+
+Thus, $D_M^2(\mathbf{x}, \boldsymbol{\mu}_1) = 2.952$, so $D_M(\mathbf{x}, \boldsymbol{\mu}_1) = \sqrt{2.952} \approx 1.718$.
+
+**Step 3: Compute Mahalanobis distance to $C_2$.**
+
+$\mathbf{x} - \boldsymbol{\mu}_2 = \begin{bmatrix} 1 - 3 \\ 2.2 - 3 \end{bmatrix} = \begin{bmatrix} -2 \\ -0.8 \end{bmatrix}$
+
+First compute $(\mathbf{x} - \boldsymbol{\mu}_2)^T \boldsymbol{\Sigma}^{-1}$:
+
+$$
+\begin{bmatrix} -2 & -0.8 \end{bmatrix} \begin{bmatrix} 0.95 & -0.15 \\ -0.15 & 0.55 \end{bmatrix} = \begin{bmatrix} (-2)(0.95) + (-0.8)(-0.15) & (-2)(-0.15) + (-0.8)(0.55) \end{bmatrix}
+$$
+
+$$
+= \begin{bmatrix} -1.9 + 0.12 & 0.3 - 0.44 \end{bmatrix} = \begin{bmatrix} -1.78 & -0.14 \end{bmatrix}
+$$
+
+Now compute $(\mathbf{x} - \boldsymbol{\mu}_2)^T \boldsymbol{\Sigma}^{-1} (\mathbf{x} - \boldsymbol{\mu}_2)$:
+
+$$
+\begin{bmatrix} -1.78 & -0.14 \end{bmatrix} \begin{bmatrix} -2 \\ -0.8 \end{bmatrix} = (-1.78)(-2) + (-0.14)(-0.8) = 3.56 + 0.112 = 3.672
+$$
+
+Thus, $D_M^2(\mathbf{x}, \boldsymbol{\mu}_2) = 3.672$, so $D_M(\mathbf{x}, \boldsymbol{\mu}_2) = \sqrt{3.672} \approx 1.916$.
+
+**Step 4: Compare distances and assign label.**
+
+$$
+D_M^2(\mathbf{x}, \boldsymbol{\mu}_1) = 2.95
+$$
+
+$$
+D_M^2(\mathbf{x}, \boldsymbol{\mu}_2) = 3.67
+$$
+
+Since $2.95 < 3.67$, the Mahalanobis distance to $C_1$ is **smaller** than to $C_2$.
+
+**Therefore, assign $\mathbf{x} = [1, 2.2]^T$ to class $C_1$.**
+
+**Step 5: Verify with discriminant function (alternative method).**
+
+The linear discriminant value $(\boldsymbol{\mu}_1 - \boldsymbol{\mu}_2)^T \boldsymbol{\Sigma}^{-1} \mathbf{x} - \frac{1}{2}(\boldsymbol{\mu}_1^T \boldsymbol{\Sigma}^{-1} \boldsymbol{\mu}_1 - \boldsymbol{\mu}_2^T \boldsymbol{\Sigma}^{-1} \boldsymbol{\mu}_2) = -5.04 - (-5.4) = 0.36 > 0$, confirming $C_1$ decision.
+
+---
 
 ## 48. When Is Linear Bayes Optimal Also Minimum Error?
 

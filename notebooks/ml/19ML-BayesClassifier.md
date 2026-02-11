@@ -42,6 +42,12 @@ $$
 
 This ensures the posterior probabilities $P(C_k | \mathbf{x})$ sum to 1.
 
+## 02. The Evidence Term
+
+**Front:** Why is the evidence $p(\mathbf{x})$ often omitted when comparing posteriors for different classes?
+**Back:**
+Because $p(\mathbf{x}) = \sum_k p(\mathbf{x} | C_k) P(C_k)$ is constant for all classes given $\mathbf{x}$. For comparison/decision making, we only need the numerator: $p(\mathbf{x} | C_k) P(C_k)$. The evidence acts as a normalization constant ensuring posteriors sum to 1.
+
 ## 02. Pitfall: Evidence vs. Sum of Posteriors
 
 **Front:** Is $P(\mathbf{x})$ the sum of the posteriors $P(C_k | \mathbf{x})$ for all classes?
@@ -54,11 +60,11 @@ $$
 
 The evidence $P(\mathbf{x})$ is a probability (density) for $\mathbf{x}$ itself. It is a normalization constant that *makes* the posteriors sum to 1, not the result of that sum.
 
-## 02. The Evidence Term
+## 03. Pitfall: Reversing the Dependency
 
-**Front:** Why is the evidence $p(\mathbf{x})$ often omitted when comparing posteriors for different classes?
+**Front:** What is the fundamental logical error in stating "$P(\mathbf{x}) = \sum_k P(C_k | \mathbf{x})$"?
 **Back:**
-Because $p(\mathbf{x}) = \sum_k p(\mathbf{x} | C_k) P(C_k)$ is constant for all classes given $\mathbf{x}$. For comparison/decision making, we only need the numerator: $p(\mathbf{x} | C_k) P(C_k)$. The evidence acts as a normalization constant ensuring posteriors sum to 1.
+It reverses the dependency. In probability theory, $P(\mathbf{x})$ is calculated **first** from the generative model (priors and likelihoods). Then, posteriors $P(C_k | \mathbf{x})$ are derived **from** $P(\mathbf{x})$ via Bayes' theorem. The sum of posteriors is always 1 by definition, but this is a **consequence** of normalization using $P(\mathbf{x})$, not a way to compute $P(\mathbf{x})$.
 
 ## 03. Bayes Classifier Decision Rule
 
@@ -304,8 +310,6 @@ P_{\text{error}} = \int \min[P(C_1 | \mathbf{x}), P(C_2 | \mathbf{x})] p(\mathbf
 $$
 
 It is not simply a function of the priors alone; it depends on the overlap of the class-conditional distributions $p(\mathbf{x} | C_k)$.
-
-
 
 ## 01. Bayes Error Rate: Definition
 

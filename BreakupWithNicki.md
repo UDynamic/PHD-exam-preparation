@@ -1,5 +1,5 @@
 She broke up with me today. 
-I teared my tears weeks ago in Shahreza. 
+I teared my tears weeks ago when I was away home.
 
 She wanted Marriage and Kids. 
 I didn't. 

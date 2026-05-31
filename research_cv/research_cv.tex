@@ -1,0 +1,129 @@
+\documentclass[11pt,a4paper]{article}
+
+% ========= Engine-safe font setup (XeLaTeX) =========
+\usepackage{fontspec} % XeLaTeX/LuaLaTeX
+\setmainfont{Latin Modern Roman}
+
+% ========= Layout & typography =========
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+
+\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=1.2em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+\titleformat{\section}{\large\bfseries}{}{0pt}{}[\vspace{-2pt}\titlerule]
+\titlespacing*{\section}{0pt}{10pt}{6pt}
+
+% ========= Simple placeholders =========
+\newcommand{\TODO}[1]{\textcolor{red}{\textbf{TODO:} #1}}
+
+% Safe link helper: avoids fragile content in PDF strings
+\newcommand{\Link}[2]{\href{#1}{\texttt{#2}}}
+
+\begin{document}
+
+% ===================== Header =====================
+{\LARGE \textbf{Mahriar Gharaghani}}\\[-2pt]
+{\color{gray}Artificial Intelligence \,|\, Operations Research \,|\, Decision Intelligence}
+
+\vspace{6pt}
+
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+Email: & \Link{mailto:your.email@example.com}{\TODO{your.email@example.com}} \\
+Phone: & \TODO{+98 ...} \\
+Location: & \TODO{City, Country} \\
+LinkedIn: & \Link{https://linkedin.com/in/your-handle}{\TODO{linkedin.com/in/...}} \\
+GitHub (optional): & \Link{https://github.com/your-handle}{\TODO{github.com/...}} \\
+Scholar (optional): & \Link{https://scholar.google.com/}{\TODO{scholar.google.com/...}} \\
+\end{tabularx}
+
+% ===================== Research Interests =====================
+\section*{Research Interests}
+Sequential decision-making under uncertainty; reinforcement learning for operations;
+optimization-informed AI systems; project portfolio optimization and budgeting under cash-flow constraints;
+simulation--optimization.
+
+% ===================== Education =====================
+\section*{Education}
+\textbf{M.Sc. in Industrial Engineering} \hfill \TODO{2023--2026}\\
+Iran University of Science and Technology (IUST), Tehran, Iran\\
+Thesis: \textit{Developing an AI Agent for Project Portfolio Budget Allocation under Uncertain and Dynamic Cash-Flow Constraints}\\
+Supervisor: \TODO{Seyed Farid Ghannadpour (if official)}\\
+\TODO{GPA (optional), relevant coursework (optional)}
+
+\vspace{2pt}
+\textbf{B.Sc. in \TODO{Industrial Engineering / ...}} \hfill \TODO{Start--End}\\
+\TODO{University name, City, Country}\\
+\TODO{GPA (optional), relevant coursework (optional)}
+
+% ===================== Research Experience =====================
+\section*{Research Experience}
+\textbf{M.Sc. Thesis Researcher, Iran University of Science and Technology (IUST)} \hfill \TODO{2023--2026}\\
+\textit{AI Agent for Project Portfolio Budget Allocation under Uncertain Cash-Flow Constraints}
+\begin{itemize}
+  \item Developed a sequential decision-making formulation for multi-period portfolio budgeting under uncertain and dynamic cash-flow constraints.
+  \item Integrated optimization, simulation, and AI-based policy learning to generate feasible allocation decisions under uncertainty.
+  \item Designed an evaluation protocol comparing learned policies to a perfect-foresight optimization benchmark as an upper bound.
+  \item \TODO{Add concrete methods: MIP/DP, scenario simulation, RL algorithm, environment design, reward, constraints handling.}
+\end{itemize}
+
+\textbf{Externally Supported Thesis Context} \hfill \TODO{Year(s)}\\
+Supported under a contract with \textbf{Tehran Industrial Estates Company}.
+\begin{itemize}
+  \item Aligned problem formulation and evaluation with real institutional project portfolio and budgeting needs.
+  \item \TODO{Add what you can safely claim (data type, validation, deliverables).}
+\end{itemize}
+
+% ===================== Publications =====================
+\section*{Publications}
+\TODO{If none, delete this section entirely.}
+\begin{itemize}
+  \item \TODO{Author(s). Title. Venue, Year.}
+\end{itemize}
+
+% ===================== Selected Projects =====================
+\section*{Selected Projects}
+\textbf{\TODO{Simulation--Optimization Prototype for Cash-Flow Feasibility}} \hfill \TODO{Year}
+\begin{itemize}
+  \item \TODO{What you built, methods used, and outcome.}
+  \item Tech: \TODO{Python, Pyomo, Gurobi/CPLEX, NumPy/pandas, ...}
+\end{itemize}
+
+\textbf{\TODO{RL Baselines for Sequential Budget Allocation}} \hfill \TODO{Year}
+\begin{itemize}
+  \item Implemented baseline policies and an evaluation harness for sequential allocation under uncertainty.
+  \item \TODO{Algorithms: PPO/DQN/A2C; custom environment; metrics; ablations.}
+\end{itemize}
+
+% ===================== Professional Experience =====================
+\section*{Professional Experience}
+\textbf{Project Control / Planning Engineer, \TODO{Company (Oil \& Gas)}} \hfill \TODO{Start--End}
+\begin{itemize}
+  \item Worked on project-oriented decision problems involving planning, cost control, and schedule/budget monitoring in industrial environments.
+  \item \TODO{Add 2--4 strong bullets with measurable outcomes and analytical/automation components if any.}
+\end{itemize}
+
+% ===================== Skills =====================
+\section*{Technical Skills}
+\textbf{Programming:} Python, \TODO{MATLAB}, \TODO{SQL}\\
+\textbf{Optimization / OR:} \TODO{Pyomo}, \TODO{Gurobi/CPLEX}, \TODO{OR-Tools}, mixed-integer optimization, simulation\\
+\textbf{Machine Learning / AI:} \TODO{PyTorch}, \TODO{scikit-learn}, reinforcement learning (\TODO{Stable-Baselines3 / RLlib})\\
+\textbf{Tools:} Git, Linux, \LaTeX
+
+% ===================== Languages =====================
+\section*{Languages}
+Persian (Native); English (\TODO{Professional working proficiency / Full professional proficiency})
+
+% ===================== References =====================
+\section*{References}
+Available upon request.\\
+\textbf{Seyed Farid Ghannadpour}, Associate Professor, Department of Industrial Engineering, Iran University of Science and Technology\\
+Email: \Link{mailto:ghannadpour@iust.ac.ir}{ghannadpour@iust.ac.ir} \quad | \quad Phone: +98 21 5015 7322
+
+\end{document}

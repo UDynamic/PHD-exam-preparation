@@ -1,169 +1,204 @@
-% research_cv.tex  (XeLaTeX)
-% Compile with: xelatex research_cv.tex
+% research_cv.tex
+% Compile with XeLaTeX
 
 \documentclass[11pt,a4paper]{article}
 
-% ===================== Engine / Fonts (XeLaTeX) =====================
+% ===================== Fonts / Engine =====================
 \usepackage{fontspec}
 \setmainfont{Latin Modern Roman}
 
-% ===================== Layout / Typography =====================
+% ===================== Layout =====================
 \usepackage[margin=1in]{geometry}
 \usepackage{microtype}
 \usepackage{xcolor}
 \usepackage{enumitem}
 \usepackage{tabularx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
 \usepackage{titlesec}
 \usepackage[hidelinks]{hyperref}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{4pt}
-\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=1.2em}
+\setlist[itemize]{leftmargin=1.2em, noitemsep, topsep=2pt}
+\renewcommand{\arraystretch}{1.15}
 
 \titleformat{\section}{\large\bfseries}{}{0pt}{}[\vspace{-2pt}\titlerule]
 \titlespacing*{\section}{0pt}{10pt}{6pt}
 
 % ===================== Helpers =====================
 \newcommand{\Link}[2]{\href{#1}{\texttt{#2}}}
-\newcommand{\Sep}{\,|\,}
-
-% Optional photo (kept safe: will not error if file missing)
-\newcommand{\IfPhoto}[1]{%
-  \IfFileExists{#1}{\includegraphics[width=2.8cm]{#1}}{}%
-}
+\newcommand{\CVItem}[2]{\textbf{#1} & #2 \\}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 \begin{document}
 
 % ===================== Header =====================
-\begin{minipage}[t]{0.72\textwidth}
 {\LARGE \textbf{Mahriar Gharaghani}}\\[-2pt]
-{\color{gray}AI / ML Engineer \Sep Python Developer \Sep Decision Intelligence (AI \& OR)}\\[4pt]
+{\color{gray}Research-Oriented Curriculum Vitae}\\[4pt]
 
-Tehran, Iran\\
-Email: \Link{mailto:mahriargharaghani@gmail.com}{mahriargharaghani@gmail.com} \Sep
-Phone: +98 917 397 8579\\
-GitHub: \Link{https://github.com/UDynamic}{github.com/UDynamic} \Sep
-LinkedIn: \Link{https://linkedin.com/mahriar-gharaghani}{linkedin.com/mahriar-gharaghani}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.24\textwidth}
-\vspace{0pt}
-% Put your photo file next to this .tex and rename it to "photo.jpg" (or edit the name below).
-% This is optional; if the file doesn't exist, nothing is shown.
-\raggedleft
-\IfPhoto{photo.jpg}
-\end{minipage}
+\begin{tabularx}{\textwidth}{@{}L{3.2cm}Y@{}}
+Email & \Link{mailto:mahriargharaghani@gmail.com}{mahriargharaghani@gmail.com} \\
+Phone & +98 917 397 8579 \\
+Location & Tehran, Iran \\
+GitHub & \Link{https://github.com/UDynamic}{github.com/UDynamic} \\
+LinkedIn & \Link{https://linkedin.com/mahriar-gharaghani}{linkedin.com/mahriar-gharaghani} \\
+Research Areas & Artificial Intelligence, Reinforcement Learning, Decision Intelligence, Operations Research-inspired AI Systems \\
+\end{tabularx}
 
-% ===================== Summary =====================
-\section*{Profile}
-AI/ML engineer with hands-on experience across full-stack applications, workflow automation, decision-support tools, and applied AI.
-Research focus includes sequential decision-making under uncertainty and optimization-informed AI systems, motivated by real project portfolio budgeting constraints.
+% ===================== Research Profile =====================
+\section*{Research Profile}
+Research-oriented AI engineer with academic and practical experience at the intersection of
+artificial intelligence, sequential decision-making, and project-oriented resource allocation.
+Current work focuses on the design of intelligent decision-support systems for project portfolio budgeting
+under uncertainty and dynamic cash-flow constraints, combining simulation, optimization, and reinforcement learning.
+Prior professional experience in project control and project management has provided the applied context
+that motivates this research direction.
 
 % ===================== Research Interests =====================
 \section*{Research Interests}
-Reinforcement learning for operations; sequential decision-making under uncertainty; optimization and simulation for project portfolio management;
-cash-flow constrained budgeting; decision intelligence; applied RAG/LLM systems for domain workflows.
+\begin{tabularx}{\textwidth}{@{}L{4.2cm}Y@{}}
+Core Interests &
+Reinforcement learning, sequential decision-making under uncertainty, optimization-informed AI, simulation-based evaluation, decision-support systems \\
+Application Domains &
+Project portfolio management, budget allocation, cash-flow constrained planning, industrial and organizational decision systems \\
+Related Technical Interests &
+Retrieval-augmented generation (RAG), LLM-based workflow systems, ML systems engineering, AI-assisted knowledge tools \\
+\end{tabularx}
 
 % ===================== Education =====================
 \section*{Education}
-\textbf{M.Sc. in Engineering Management} \hfill 2023--2026 (in progress)\\
-Iran University of Science and Technology (IUST), Tehran, Iran\\
-Thesis (working title): \textit{Autonomous Budgeting AI Agent} / \textit{Developing an AI Agent for Project Portfolio Budget Allocation under Uncertainty and Dynamic Cash-Flow Constraints}
-\begin{itemize}
-  \item Built a Python-based deep reinforcement learning system for project portfolio budget allocation under uncertainty and dynamic financial constraints.
-  \item Evaluation compares learned policies to a perfect-foresight optimization benchmark (upper bound).
-  \item Thesis context includes external support under a contract with \textbf{Tehran Industrial Estates Company}.
-\end{itemize}
+\begin{longtable}{@{}L{2.7cm}L{5.7cm}L{2.6cm}Y@{}}
+\toprule
+\textbf{Degree} & \textbf{Institution} & \textbf{Dates} & \textbf{Details} \\
+\midrule
+M.Sc. in Engineering Management
+& Iran University of Science and Technology (IUST), Tehran, Iran
+& 2023--2026
+& \textbf{In progress}. Thesis: \textit{Autonomous Budgeting AI Agent}. Research concerns project portfolio budget allocation under uncertainty and dynamic financial constraints using a Python-based deep reinforcement learning framework. The work is evaluated against a perfect-foresight optimization benchmark and has received external support under a contract with \textbf{Tehran Industrial Estates Company}. \\
 
-\textbf{B.Sc. in Industrial Engineering} \hfill 2017--2023\\
-Isfahan University of Technology (IUT), Isfahan, Iran
+B.Sc. in Industrial Engineering
+& Isfahan University of Technology (IUT), Isfahan, Iran
+& 2017--2023
+& Completed. Undergraduate training in industrial engineering provided the analytical foundation for later work in planning, decision systems, and quantitative modeling. \\
 
-\textbf{Ph.D. Entrance Exam (Computer Engineering --- AI \& Robotics)} \hfill 2026 (results pending)\\
-National Universities of Iran
-\begin{itemize}
-  \item Built \textbf{RAG4Konkur}: a local AI study system for flashcard generation, concept review, and AnkiDroid-ready exports.
-  \item Documented preparation topics and artifacts on GitHub (data structures \& algorithms, machine learning, pattern recognition).
-\end{itemize}
+Ph.D. Entrance Exam (Computer Engineering --- AI \& Robotics)
+& National Universities of Iran
+& 2026
+& Results pending. Preparation process included structured review and implementation work in data structures and algorithms, machine learning, and pattern recognition. Developed the \textbf{RAG4Konkur} study system to support preparation. \\
+\bottomrule
+\end{longtable}
 
 % ===================== Research Experience =====================
 \section*{Research Experience}
-\textbf{M.Sc. Thesis Researcher, IUST} \hfill 2023--2026
-\begin{itemize}
-  \item Designed an AI-driven sequential decision-making framework for multi-period portfolio budget allocation under uncertain and dynamic cash-flow constraints.
-  \item Integrated optimization, simulation, and policy learning to produce feasible allocation decisions under uncertainty.
-  \item Implemented end-to-end experimentation in Python (environment, training loop, evaluation, and reporting).
-  \item Benchmarking: compared learned policies against a perfect-foresight optimization solution as an upper bound reference.
-\end{itemize}
+\begin{longtable}{@{}L{4.1cm}L{2.4cm}Y@{}}
+\toprule
+\textbf{Role / Context} & \textbf{Dates} & \textbf{Description} \\
+\midrule
+M.Sc. Thesis Researcher, IUST
+& 2023--2026
+& Conducting graduate research on AI-based project portfolio budget allocation under uncertainty and dynamic cash-flow constraints. The research formulates the problem as a sequential decision process and investigates the use of reinforcement learning for adaptive allocation policies. The implementation includes Python-based experimentation, simulation design, and comparison with a perfect-foresight optimization benchmark as an upper bound. \\
 
-\textbf{Industry-Supported Thesis Context (Tehran Industrial Estates Company)} \hfill 2023--2026
-\begin{itemize}
-  \item Aligned the problem formulation with real institutional needs in portfolio budgeting and financial feasibility constraints.
-\end{itemize}
+Industry-Supported Research Context
+& 2023--2026
+& Thesis work supported under a contract with \textbf{Tehran Industrial Estates Company}, indicating institutional relevance of the problem setting and its practical value for real-world budgeting and planning environments. \\
+\bottomrule
+\end{longtable}
 
-% ===================== Selected Projects =====================
-\section*{Selected Projects (AI / ML / Systems)}
-\textbf{RAG4Konkur (Local RAG Study Assistant)} \hfill 2026
-\begin{itemize}
-  \item Built a local retrieval-augmented generation (RAG) system for study workflows: flashcard generation, concept review, and AnkiDroid export.
-  \item Focused on practical usability, reproducible content generation, and offline-first study pipelines.
-\end{itemize}
+% ===================== Research / Technical Projects =====================
+\section*{Selected Research and Technical Projects}
+\begin{longtable}{@{}L{4.3cm}L{2.1cm}Y@{}}
+\toprule
+\textbf{Project} & \textbf{Period} & \textbf{Description} \\
+\midrule
+Autonomous Budgeting AI Agent
+& 2023--present
+& Developed a research-oriented system for sequential budget allocation in project portfolios subject to uncertainty and changing financial constraints. The project combines domain-informed formulation, simulation-based evaluation, and reinforcement learning. \\
 
-\textbf{ML Engineering Preparation Projects (End-to-End Pipelines)} \hfill 2023--present
-\begin{itemize}
-  \item House-price ML pipeline: data preprocessing, feature engineering, model training, evaluation, and reporting.
-  \item PyTorch CIFAR-10 pipeline: custom dataset loading, augmentation, checkpointing, and ResNet18 transfer learning.
-  \item Model serving: deployed a trained model behind a FastAPI REST API; containerized deployment with Docker.
-  \item Explored experiment tracking and deployment concepts (including MLflow-oriented ideas and CI/CD exposure).
-\end{itemize}
+RAG4Konkur
+& 2025--2026
+& Developed a local retrieval-augmented study assistant for flashcard generation, concept review, and AnkiDroid-ready export. The system was designed to support exam preparation workflows while exploring practical RAG pipeline design and local AI deployment. \\
 
-\textbf{Additional Applied / Exploration Projects} \hfill 2023--present
-\begin{itemize}
-  \item Robotic arm reinforcement learning simulation (exploration).
-  \item Logistics heatmap decision-support tool; live stock candlestick/treemap visualization experiments.
-  \item Workflow automation and AI tooling prototypes (LangChain-based apps; N8N-style orchestration).
-  \item Full-stack utilities: spreadsheet web app; web dashboards and small decision-support interfaces.
-\end{itemize}
+End-to-End House Price ML Pipeline
+& 2024
+& Implemented a full machine learning workflow including preprocessing, feature engineering, model development, evaluation, and structured reporting as part of ML systems preparation. \\
+
+PyTorch CIFAR-10 Pipeline
+& 2024
+& Implemented an image-classification pipeline using PyTorch, including custom data loading, augmentation, checkpointing, and ResNet18 transfer learning. \\
+
+Model Serving with FastAPI and Docker
+& 2024
+& Designed a deployable inference workflow by exposing a machine learning model through a FastAPI REST interface and containerizing the application using Docker. \\
+
+Robotic Arm Reinforcement Learning Simulation
+& 2024
+& Explored reinforcement learning in a simulated control setting through a robotic arm task, as part of broader interest in sequential control and decision-making systems. \\
+
+Decision-Support and Visualization Tools
+& 2023--present
+& Developed several applied prototypes including logistics heatmap tools, live stock visualization systems, spreadsheet-style web utilities, and workflow-oriented AI applications. These projects contributed to practical systems design, interface development, and applied analytical tooling. \\
+\bottomrule
+\end{longtable}
 
 % ===================== Professional Experience =====================
 \section*{Professional Experience}
-\textbf{Project Management Officer (PMO), Iran Energy Industries Corporation (IEIC)} \hfill 2023
-\begin{itemize}
-  \item Served as senior deputy to the Head of Department; supported planning and coordination across project activities.
-  \item Worked in project-oriented environments where budgeting, scheduling, and reporting constraints are central.
-\end{itemize}
+\begin{longtable}{@{}L{4.3cm}L{2.0cm}Y@{}}
+\toprule
+\textbf{Position} & \textbf{Dates} & \textbf{Description} \\
+\midrule
+Project Management Officer, Iran Energy Industries Corporation (IEIC)
+& 2023
+& Worked in a project-management environment with exposure to organizational planning, reporting, and coordination processes. Served as senior deputy to the Head of Department. This role further strengthened interest in structured decision-making and complex project environments. \\
 
-\textbf{Project Control Specialist, Jahanpars Group} \hfill 2019--2020
-\begin{itemize}
-  \item First professional role during undergraduate studies; contributed to project control activities in an industrial setting (COVID-19 period).
-\end{itemize}
+Project Control Specialist, Jahanpars Group
+& 2019--2020
+& Contributed to project control activities while still an undergraduate student. This early experience in a large industrial setting, during the COVID-19 period, played an important role in shaping later research interest in planning, uncertainty, and resource allocation. \\
 
-\textbf{Career Break (Market Re-entry; Technical Deepening)} \hfill 2023--present
-\begin{itemize}
-  \item Intentional shift from management-oriented work toward deep technical engineering for designing intelligent systems.
-  \item Completed / progressed through full-stack and software engineering training (freeCodeCamp tracks).
-  \item Built multiple applied AI/ML engineering projects (pipelines, deployment, containerization, experimentation).
-\end{itemize}
+Independent Technical Reorientation
+& 2023--present
+& Undertook a deliberate transition from management-oriented roles toward technical and research-driven AI systems development. This period included intensive self-directed work in software engineering, machine learning systems, deployment practices, and AI application development. \\
+\bottomrule
+\end{longtable}
+
+% ===================== Technical Preparation =====================
+\section*{Technical Preparation and Independent Study}
+\begin{tabularx}{\textwidth}{@{}L{4.2cm}Y@{}}
+Software Engineering &
+Completed substantial self-directed study in web and software engineering, including responsive web design, JavaScript algorithms and data structures, front-end libraries, data visualization, relational databases, and back-end APIs. \\
+ML Systems Preparation &
+Worked on model development pipelines, deployment workflows, API serving, containerization, and experiment-tracking concepts relevant to practical ML engineering. \\
+AI Application Development &
+Explored LangChain-based systems, RAG pipelines, workflow automation, and local AI tool development for domain-specific use cases. \\
+\end{tabularx}
 
 % ===================== Skills =====================
 \section*{Technical Skills}
-\textbf{Programming:} Python; JavaScript; TypeScript; Markdown; \LaTeX\\
-\textbf{Backend / APIs:} FastAPI; Django; Express.js\\
-\textbf{Frontend:} React.js\\
-\textbf{AI / ML:} machine learning; deep learning (PyTorch); prompt engineering; LangChain; RAG\\
-\textbf{Data:} EDA; preprocessing; feature engineering; visualization\\
-\textbf{MLOps / DevOps:} Docker; model serving (API); deployment concepts; experiment tracking concepts\\
-\textbf{Automation / Workflow:} N8N-style orchestration (as used in projects)
+\begin{tabularx}{\textwidth}{@{}L{4cm}Y@{}}
+Programming Languages & Python; JavaScript; TypeScript \\
+Scientific / Technical Writing & \LaTeX; Markdown \\
+Backend and APIs & FastAPI; Django; Express.js \\
+Frontend Development & React.js \\
+Machine Learning / AI & Machine learning; deep learning workflows; reinforcement learning exposure; prompt engineering; LangChain; retrieval-augmented generation (RAG) \\
+Data Work & Exploratory data analysis; preprocessing; feature engineering; data visualization \\
+Deployment / Systems & Docker; model serving; deployment concepts; experiment tracking concepts \\
+Workflow / Automation & N8N-style automation workflows; AI-assisted process tooling \\
+\end{tabularx}
 
-% ===================== Certifications (optional) =====================
-\section*{Certifications (Selected)}
-freeCodeCamp --- Full Stack JavaScript Certifications (multiple tracks): Responsive Web Design; JavaScript Algorithms \& Data Structures; Front End Libraries; Data Visualization; Relational Database; Back End Development and APIs.
+% ===================== Certifications =====================
+\section*{Certifications and Structured Training}
+\begin{tabularx}{\textwidth}{@{}L{4.2cm}Y@{}}
+freeCodeCamp (selected tracks) &
+Responsive Web Design; JavaScript Algorithms and Data Structures; Front End Development Libraries; Data Visualization; Relational Database; Back End Development and APIs \\
+\end{tabularx}
 
 % ===================== Languages =====================
 \section*{Languages}
-Persian (Native); English (Professional working proficiency)
-
-% ===================== Notes (optional) =====================
-% \section*{Notes}
-% Portfolio evidence and project documentation available via GitHub: \Link{https://github.com/UDynamic}{github.com/UDynamic}.
+\begin{tabularx}{\textwidth}{@{}L{3.5cm}Y@{}}
+Persian & Native \\
+English & Near-native / professional proficiency \\
+\end{tabularx}
 
 \end{document}

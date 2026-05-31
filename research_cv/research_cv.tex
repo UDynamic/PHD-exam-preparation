@@ -1,129 +1,169 @@
+% research_cv.tex  (XeLaTeX)
+% Compile with: xelatex research_cv.tex
+
 \documentclass[11pt,a4paper]{article}
 
-% ========= Engine-safe font setup (XeLaTeX) =========
-\usepackage{fontspec} % XeLaTeX/LuaLaTeX
+% ===================== Engine / Fonts (XeLaTeX) =====================
+\usepackage{fontspec}
 \setmainfont{Latin Modern Roman}
 
-% ========= Layout & typography =========
+% ===================== Layout / Typography =====================
 \usepackage[margin=1in]{geometry}
 \usepackage{microtype}
-\usepackage{enumitem}
 \usepackage{xcolor}
+\usepackage{enumitem}
 \usepackage{tabularx}
-\usepackage[hidelinks]{hyperref}
 \usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
 
-\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=1.2em}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{4pt}
+\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=1.2em}
 
 \titleformat{\section}{\large\bfseries}{}{0pt}{}[\vspace{-2pt}\titlerule]
 \titlespacing*{\section}{0pt}{10pt}{6pt}
 
-% ========= Simple placeholders =========
-\newcommand{\TODO}[1]{\textcolor{red}{\textbf{TODO:} #1}}
-
-% Safe link helper: avoids fragile content in PDF strings
+% ===================== Helpers =====================
 \newcommand{\Link}[2]{\href{#1}{\texttt{#2}}}
+\newcommand{\Sep}{\,|\,}
+
+% Optional photo (kept safe: will not error if file missing)
+\newcommand{\IfPhoto}[1]{%
+  \IfFileExists{#1}{\includegraphics[width=2.8cm]{#1}}{}%
+}
 
 \begin{document}
 
 % ===================== Header =====================
+\begin{minipage}[t]{0.72\textwidth}
 {\LARGE \textbf{Mahriar Gharaghani}}\\[-2pt]
-{\color{gray}Artificial Intelligence \,|\, Operations Research \,|\, Decision Intelligence}
+{\color{gray}AI / ML Engineer \Sep Python Developer \Sep Decision Intelligence (AI \& OR)}\\[4pt]
 
-\vspace{6pt}
+Tehran, Iran\\
+Email: \Link{mailto:mahriargharaghani@gmail.com}{mahriargharaghani@gmail.com} \Sep
+Phone: +98 917 397 8579\\
+GitHub: \Link{https://github.com/UDynamic}{github.com/UDynamic} \Sep
+LinkedIn: \Link{https://linkedin.com/mahriar-gharaghani}{linkedin.com/mahriar-gharaghani}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.24\textwidth}
+\vspace{0pt}
+% Put your photo file next to this .tex and rename it to "photo.jpg" (or edit the name below).
+% This is optional; if the file doesn't exist, nothing is shown.
+\raggedleft
+\IfPhoto{photo.jpg}
+\end{minipage}
 
-\begin{tabularx}{\textwidth}{@{}l X@{}}
-Email: & \Link{mailto:your.email@example.com}{\TODO{your.email@example.com}} \\
-Phone: & \TODO{+98 ...} \\
-Location: & \TODO{City, Country} \\
-LinkedIn: & \Link{https://linkedin.com/in/your-handle}{\TODO{linkedin.com/in/...}} \\
-GitHub (optional): & \Link{https://github.com/your-handle}{\TODO{github.com/...}} \\
-Scholar (optional): & \Link{https://scholar.google.com/}{\TODO{scholar.google.com/...}} \\
-\end{tabularx}
+% ===================== Summary =====================
+\section*{Profile}
+AI/ML engineer with hands-on experience across full-stack applications, workflow automation, decision-support tools, and applied AI.
+Research focus includes sequential decision-making under uncertainty and optimization-informed AI systems, motivated by real project portfolio budgeting constraints.
 
 % ===================== Research Interests =====================
 \section*{Research Interests}
-Sequential decision-making under uncertainty; reinforcement learning for operations;
-optimization-informed AI systems; project portfolio optimization and budgeting under cash-flow constraints;
-simulation--optimization.
+Reinforcement learning for operations; sequential decision-making under uncertainty; optimization and simulation for project portfolio management;
+cash-flow constrained budgeting; decision intelligence; applied RAG/LLM systems for domain workflows.
 
 % ===================== Education =====================
 \section*{Education}
-\textbf{M.Sc. in Industrial Engineering} \hfill \TODO{2023--2026}\\
+\textbf{M.Sc. in Engineering Management} \hfill 2023--2026 (in progress)\\
 Iran University of Science and Technology (IUST), Tehran, Iran\\
-Thesis: \textit{Developing an AI Agent for Project Portfolio Budget Allocation under Uncertain and Dynamic Cash-Flow Constraints}\\
-Supervisor: \TODO{Seyed Farid Ghannadpour (if official)}\\
-\TODO{GPA (optional), relevant coursework (optional)}
+Thesis (working title): \textit{Autonomous Budgeting AI Agent} / \textit{Developing an AI Agent for Project Portfolio Budget Allocation under Uncertainty and Dynamic Cash-Flow Constraints}
+\begin{itemize}
+  \item Built a Python-based deep reinforcement learning system for project portfolio budget allocation under uncertainty and dynamic financial constraints.
+  \item Evaluation compares learned policies to a perfect-foresight optimization benchmark (upper bound).
+  \item Thesis context includes external support under a contract with \textbf{Tehran Industrial Estates Company}.
+\end{itemize}
 
-\vspace{2pt}
-\textbf{B.Sc. in \TODO{Industrial Engineering / ...}} \hfill \TODO{Start--End}\\
-\TODO{University name, City, Country}\\
-\TODO{GPA (optional), relevant coursework (optional)}
+\textbf{B.Sc. in Industrial Engineering} \hfill 2017--2023\\
+Isfahan University of Technology (IUT), Isfahan, Iran
+
+\textbf{Ph.D. Entrance Exam (Computer Engineering --- AI \& Robotics)} \hfill 2026 (results pending)\\
+National Universities of Iran
+\begin{itemize}
+  \item Built \textbf{RAG4Konkur}: a local AI study system for flashcard generation, concept review, and AnkiDroid-ready exports.
+  \item Documented preparation topics and artifacts on GitHub (data structures \& algorithms, machine learning, pattern recognition).
+\end{itemize}
 
 % ===================== Research Experience =====================
 \section*{Research Experience}
-\textbf{M.Sc. Thesis Researcher, Iran University of Science and Technology (IUST)} \hfill \TODO{2023--2026}\\
-\textit{AI Agent for Project Portfolio Budget Allocation under Uncertain Cash-Flow Constraints}
+\textbf{M.Sc. Thesis Researcher, IUST} \hfill 2023--2026
 \begin{itemize}
-  \item Developed a sequential decision-making formulation for multi-period portfolio budgeting under uncertain and dynamic cash-flow constraints.
-  \item Integrated optimization, simulation, and AI-based policy learning to generate feasible allocation decisions under uncertainty.
-  \item Designed an evaluation protocol comparing learned policies to a perfect-foresight optimization benchmark as an upper bound.
-  \item \TODO{Add concrete methods: MIP/DP, scenario simulation, RL algorithm, environment design, reward, constraints handling.}
+  \item Designed an AI-driven sequential decision-making framework for multi-period portfolio budget allocation under uncertain and dynamic cash-flow constraints.
+  \item Integrated optimization, simulation, and policy learning to produce feasible allocation decisions under uncertainty.
+  \item Implemented end-to-end experimentation in Python (environment, training loop, evaluation, and reporting).
+  \item Benchmarking: compared learned policies against a perfect-foresight optimization solution as an upper bound reference.
 \end{itemize}
 
-\textbf{Externally Supported Thesis Context} \hfill \TODO{Year(s)}\\
-Supported under a contract with \textbf{Tehran Industrial Estates Company}.
+\textbf{Industry-Supported Thesis Context (Tehran Industrial Estates Company)} \hfill 2023--2026
 \begin{itemize}
-  \item Aligned problem formulation and evaluation with real institutional project portfolio and budgeting needs.
-  \item \TODO{Add what you can safely claim (data type, validation, deliverables).}
-\end{itemize}
-
-% ===================== Publications =====================
-\section*{Publications}
-\TODO{If none, delete this section entirely.}
-\begin{itemize}
-  \item \TODO{Author(s). Title. Venue, Year.}
+  \item Aligned the problem formulation with real institutional needs in portfolio budgeting and financial feasibility constraints.
 \end{itemize}
 
 % ===================== Selected Projects =====================
-\section*{Selected Projects}
-\textbf{\TODO{Simulation--Optimization Prototype for Cash-Flow Feasibility}} \hfill \TODO{Year}
+\section*{Selected Projects (AI / ML / Systems)}
+\textbf{RAG4Konkur (Local RAG Study Assistant)} \hfill 2026
 \begin{itemize}
-  \item \TODO{What you built, methods used, and outcome.}
-  \item Tech: \TODO{Python, Pyomo, Gurobi/CPLEX, NumPy/pandas, ...}
+  \item Built a local retrieval-augmented generation (RAG) system for study workflows: flashcard generation, concept review, and AnkiDroid export.
+  \item Focused on practical usability, reproducible content generation, and offline-first study pipelines.
 \end{itemize}
 
-\textbf{\TODO{RL Baselines for Sequential Budget Allocation}} \hfill \TODO{Year}
+\textbf{ML Engineering Preparation Projects (End-to-End Pipelines)} \hfill 2023--present
 \begin{itemize}
-  \item Implemented baseline policies and an evaluation harness for sequential allocation under uncertainty.
-  \item \TODO{Algorithms: PPO/DQN/A2C; custom environment; metrics; ablations.}
+  \item House-price ML pipeline: data preprocessing, feature engineering, model training, evaluation, and reporting.
+  \item PyTorch CIFAR-10 pipeline: custom dataset loading, augmentation, checkpointing, and ResNet18 transfer learning.
+  \item Model serving: deployed a trained model behind a FastAPI REST API; containerized deployment with Docker.
+  \item Explored experiment tracking and deployment concepts (including MLflow-oriented ideas and CI/CD exposure).
+\end{itemize}
+
+\textbf{Additional Applied / Exploration Projects} \hfill 2023--present
+\begin{itemize}
+  \item Robotic arm reinforcement learning simulation (exploration).
+  \item Logistics heatmap decision-support tool; live stock candlestick/treemap visualization experiments.
+  \item Workflow automation and AI tooling prototypes (LangChain-based apps; N8N-style orchestration).
+  \item Full-stack utilities: spreadsheet web app; web dashboards and small decision-support interfaces.
 \end{itemize}
 
 % ===================== Professional Experience =====================
 \section*{Professional Experience}
-\textbf{Project Control / Planning Engineer, \TODO{Company (Oil \& Gas)}} \hfill \TODO{Start--End}
+\textbf{Project Management Officer (PMO), Iran Energy Industries Corporation (IEIC)} \hfill 2023
 \begin{itemize}
-  \item Worked on project-oriented decision problems involving planning, cost control, and schedule/budget monitoring in industrial environments.
-  \item \TODO{Add 2--4 strong bullets with measurable outcomes and analytical/automation components if any.}
+  \item Served as senior deputy to the Head of Department; supported planning and coordination across project activities.
+  \item Worked in project-oriented environments where budgeting, scheduling, and reporting constraints are central.
+\end{itemize}
+
+\textbf{Project Control Specialist, Jahanpars Group} \hfill 2019--2020
+\begin{itemize}
+  \item First professional role during undergraduate studies; contributed to project control activities in an industrial setting (COVID-19 period).
+\end{itemize}
+
+\textbf{Career Break (Market Re-entry; Technical Deepening)} \hfill 2023--present
+\begin{itemize}
+  \item Intentional shift from management-oriented work toward deep technical engineering for designing intelligent systems.
+  \item Completed / progressed through full-stack and software engineering training (freeCodeCamp tracks).
+  \item Built multiple applied AI/ML engineering projects (pipelines, deployment, containerization, experimentation).
 \end{itemize}
 
 % ===================== Skills =====================
 \section*{Technical Skills}
-\textbf{Programming:} Python, \TODO{MATLAB}, \TODO{SQL}\\
-\textbf{Optimization / OR:} \TODO{Pyomo}, \TODO{Gurobi/CPLEX}, \TODO{OR-Tools}, mixed-integer optimization, simulation\\
-\textbf{Machine Learning / AI:} \TODO{PyTorch}, \TODO{scikit-learn}, reinforcement learning (\TODO{Stable-Baselines3 / RLlib})\\
-\textbf{Tools:} Git, Linux, \LaTeX
+\textbf{Programming:} Python; JavaScript; TypeScript; Markdown; \LaTeX\\
+\textbf{Backend / APIs:} FastAPI; Django; Express.js\\
+\textbf{Frontend:} React.js\\
+\textbf{AI / ML:} machine learning; deep learning (PyTorch); prompt engineering; LangChain; RAG\\
+\textbf{Data:} EDA; preprocessing; feature engineering; visualization\\
+\textbf{MLOps / DevOps:} Docker; model serving (API); deployment concepts; experiment tracking concepts\\
+\textbf{Automation / Workflow:} N8N-style orchestration (as used in projects)
+
+% ===================== Certifications (optional) =====================
+\section*{Certifications (Selected)}
+freeCodeCamp --- Full Stack JavaScript Certifications (multiple tracks): Responsive Web Design; JavaScript Algorithms \& Data Structures; Front End Libraries; Data Visualization; Relational Database; Back End Development and APIs.
 
 % ===================== Languages =====================
 \section*{Languages}
-Persian (Native); English (\TODO{Professional working proficiency / Full professional proficiency})
+Persian (Native); English (Professional working proficiency)
 
-% ===================== References =====================
-\section*{References}
-Available upon request.\\
-\textbf{Seyed Farid Ghannadpour}, Associate Professor, Department of Industrial Engineering, Iran University of Science and Technology\\
-Email: \Link{mailto:ghannadpour@iust.ac.ir}{ghannadpour@iust.ac.ir} \quad | \quad Phone: +98 21 5015 7322
+% ===================== Notes (optional) =====================
+% \section*{Notes}
+% Portfolio evidence and project documentation available via GitHub: \Link{https://github.com/UDynamic}{github.com/UDynamic}.
 
 \end{document}

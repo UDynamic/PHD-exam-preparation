@@ -29,8 +29,9 @@
 مهندسي وعلم كامپيوتر دانشگاه شيراز شيراز روزانه 6و7و8 تير 4840 2354
 **مهندسي وعلم كامپيوتر دانشگاه شيراز شيراز روزانه 6و7و8 تير `4874` 2354**
 
-- Yazd
-- Kashan
 
+- Yazd
+
+- Kashan : Expired
 - shahrood : Expired
 - Zanjan university : Expired
